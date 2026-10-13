@@ -100,12 +100,15 @@ jobs:
         run: python tests/run_tests.py --wasm build-wasm
       - name: Package
         run: |
+          node webminidisc/package.mjs build-wasm atrac-encoder.wme
           cd build-wasm
           zip ../atrac3-wasm.zip atrac3.mjs atrac3-core.mjs atrac3-core.wasm index.html
       - uses: actions/upload-artifact@v7
         with:
           name: atrac3-wasm
-          path: atrac3-wasm.zip
+          path: |
+            atrac3-wasm.zip
+            atrac-encoder.wme
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')

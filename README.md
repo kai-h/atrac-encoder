@@ -51,6 +51,20 @@ python3 tests/run_tests.py --wasm build-wasm
 
 **Floating-point arithmetic must not be fused or reordered.** Byte-exact output depends on every operation rounding exactly as written. The CMake build disables multiply-add contraction (`-ffp-contract=off`, or `/fp:precise` with MSVC), and the sources carry the equivalent pragmas for other build systems. Don't build with `-ffast-math`, and on 32-bit x86 use SSE2 rather than the x87 FPU. The test suite runs on every platform in CI and catches any deviation. `tools/verify_c.py` compares the C build directly with the Python models.
 
+## Web MiniDisc Pro plugin
+
+[webminidisc/](webminidisc/) packages the WebAssembly encoder as an encoder plugin for [Web MiniDisc Pro](https://web.minidisc.wiki/), which uploads music to NetMD MiniDisc recorders from the browser. It encodes LP2, 105 kbps and LP4, byte-identical to at3tool, and supports gapless uploads. Each release includes it as `atrac-encoder.wme`. To install it, open Web MiniDisc Pro's settings, choose **Manage** next to "Installed encoders", then **Install new**, and pick the file. Then select atrac-encoder as the "LP / HiMD encoder to use".
+
+With **Gapless** ticked in the upload dialog, the encoder keeps its state from one track to the next, so consecutive tracks join without a gap, and together they are exactly at3tool's encoding of the joined audio. Because of the encoder's look-ahead, each track mark lands 50 to 73 ms before the true boundary (see the streaming encoder under [WebAssembly module](#webassembly-module)). The plugin has been tested in Web MiniDisc Pro against its mock device, but not yet with a real NetMD recorder.
+
+To build it after the WebAssembly module:
+
+```bash
+node webminidisc/package.mjs build-wasm build-wasm/atrac-encoder.wme
+```
+
+[webminidisc/index.js](webminidisc/index.js) has Web MiniDisc Pro's ffmpeg convert each track to 16-bit stereo PCM, and [webminidisc/worker.js](webminidisc/worker.js) runs the streaming encoder in a module worker.
+
 ## Source code
 
 The C implementation is plain C99 with no dependencies beyond the C standard library and libm. CMake builds it as one static library, `libatrac3`, which both the command-line tool and the WebAssembly module link against, so the two produce identical output.

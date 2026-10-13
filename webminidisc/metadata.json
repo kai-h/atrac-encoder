@@ -1,0 +1,8 @@
+{
+    "encoderId": "atrac-encoder",
+    "userFriendlyName": "atrac-encoder",
+    "description": "Open source ATRAC3 (LP2/LP4) encoder whose output is byte-identical to Sony's at3tool, with gapless support",
+    "version": "0.1.0",
+    "encoderDependencies": [],
+    "apiVersion": "1"
+}
