@@ -4,7 +4,7 @@
 **Scope:** ATRAC3 at 44.1 kHz as used by MiniDisc LP2 (132 kbps) and LP4 (66 kbps), plus the 105 kbps stereo and 52/66 kbps mono modes the tool also supports
 **Status:** complete for all five ATRAC3 modes of the tool. The decoder is verified against Sony's to within float rounding. Both Sony encoders are reproduced byte for byte by the reference models (§7, §8).
 
-This document describes the codec's behaviour in our own words. It was written by observing the reference binary under emulation and differentially testing an independent implementation against it. Every statement marked **[verified]** has been checked numerically against the reference. Statements marked **[inferred]** come from code reading only, because the reference encoder never produced that case. Tables live in [Appendix A](ATRAC3-tables.md). Executable reference models live in [`reference/`](reference/).
+This document describes the codec's behaviour in our own words. It was written by analysing the reference binary and observing it under emulation, and by differentially testing our own implementation against it. Every statement marked **[verified]** has been checked numerically against the reference. Statements marked **[inferred]** come from code reading only, because the reference encoder never produced that case. Tables live in [Appendix A](ATRAC3-tables.md). Executable reference models live in [`reference/`](reference/).
 
 ---
 

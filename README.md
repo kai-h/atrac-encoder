@@ -1,6 +1,6 @@
 # ATRAC3 (MiniDisc LP2/LP4) specification
 
-A specification of Sony's ATRAC3 audio codec, as used by MiniDisc LP2 (132 kbps) and LP4 (66 kbps), written for the digital preservation of MiniDisc audio. It was reconstructed by observing Sony's reference encoder/decoder (`at3tool` 3.0.0.0) and verifying an independent implementation against it.
+A specification of Sony's ATRAC3 audio codec, as used by MiniDisc LP2 (132 kbps) and LP4 (66 kbps), written for the digital preservation of MiniDisc audio. It was reconstructed by analysing and observing Sony's reference encoder/decoder (`at3tool` 3.0.0.0) and verifying our own implementation against it.
 
 - **[spec/](spec/)** contains the specification: the bitstream, the decoder, both of Sony's encoders and all tables.
 - **[spec/reference/](spec/reference/)** contains the Python reference models.
