@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATRAC3 Encoder</title>
+<style>
+  :root { --bg: #fafaf9; --fg: #1c1917; --muted: #57534e; --line: #d6d3d1; --accent: #1d4ed8; --err: #b91c1c; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1c1917; --fg: #f5f5f4; --muted: #a8a29e; --line: #44403c; --accent: #93c5fd; --err: #fca5a5; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, sans-serif; }
+  main { max-width: 36rem; margin: 0 auto; padding: 2rem 1rem; }
+  h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+  p { color: var(--muted); margin: 0 0 1.5rem; }
+  fieldset { border: 1px solid var(--line); border-radius: 8px; padding: 1rem; margin: 0 0 1rem; }
+  legend { padding: 0 .25rem; font-weight: 600; }
+  label { display: block; margin: .5rem 0 .25rem; }
+  select, input, button { font: inherit; max-width: 100%; }
+  button { display: block; margin-top: .75rem; padding: .4rem 1rem; border-radius: 6px; border: 1px solid var(--line);
+           background: var(--fg); color: var(--bg); cursor: pointer; }
+  button:disabled { opacity: .5; cursor: default; }
+  output { display: block; margin-top: .75rem; min-height: 1.5em; }
+  output a { color: var(--accent); }
+  .err { color: var(--err); }
+</style>
+</head>
+<body>
+<main>
+  <h1>ATRAC3 encoder</h1>
+  <p>MiniDisc LP2/LP4, byte-identical to Sony's at3tool. Everything runs locally in your browser.</p>
+
+  <fieldset>
+    <legend>Encode WAV to ATRAC3</legend>
+    <label for="wav">16-bit 44.1 kHz WAV file</label>
+    <input id="wav" type="file" accept=".wav,audio/wav">
+    <label for="mode">Mode</label>
+    <select id="mode">
+      <option value="132">LP2, 132 kbps (stereo)</option>
+      <option value="66">LP4, 66 kbps joint stereo (stereo) / 66 kbps (mono)</option>
+      <option value="105">105 kbps (stereo)</option>
+      <option value="52">52 kbps (mono)</option>
+    </select>
+    <button id="encode" disabled>Encode</button>
+    <output id="encode-out" aria-live="polite"></output>
+  </fieldset>
+
+  <fieldset>
+    <legend>Decode ATRAC3 to WAV</legend>
+    <label for="at3">.at3 file</label>
+    <input id="at3" type="file" accept=".at3">
+    <button id="decode" disabled>Decode</button>
+    <output id="decode-out" aria-live="polite"></output>
+  </fieldset>
+</main>
+<script type="module">
+  import { createAtrac3 } from './atrac3.mjs';
+
+  const $ = (id) => document.getElementById(id);
+  const atrac3 = await createAtrac3();
+
+  function hook(inputId, buttonId, outId, convert, suffix, type) {
+    const input = $(inputId), button = $(buttonId), out = $(outId);
+    input.addEventListener('change', () => { button.disabled = !input.files.length; });
+    button.addEventListener('click', async () => {
+      const file = input.files[0];
+      out.className = '';
+      out.textContent = 'Working…';
+      button.disabled = true;
+      try {
+        const data = new Uint8Array(await file.arrayBuffer());
+        const t = performance.now();
+        const result = convert(data);
+        const url = URL.createObjectURL(new Blob([result], { type }));
+        const name = file.name.replace(/\.[^.]*$/, '') + suffix;
+        out.innerHTML = '';
+        const a = Object.assign(document.createElement('a'), { href: url, download: name, textContent: 'Download ' + name });
+        out.append(a, ` (${(result.length / 1024).toFixed(0)} KB, ${((performance.now() - t) / 1000).toFixed(1)} s)`);
+      } catch (e) {
+        out.className = 'err';
+        out.textContent = e.message;
+      } finally {
+        button.disabled = false;
+      }
+    });
+  }
+  hook('wav', 'encode', 'encode-out', (d) => atrac3.encodeWav(d, Number($('mode').value)), '.at3', 'audio/x-atrac3');
+  hook('at3', 'decode', 'decode-out', (d) => atrac3.decodeAt3(d), '.wav', 'audio/wav');
+</script>
+</body>
+</html>

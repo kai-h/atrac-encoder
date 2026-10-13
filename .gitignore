@@ -1,0 +1,21 @@
+# Sony binaries, the PSP SDK and RE notes: never public
+/private/
+
+# Third-party tool installs (download separately)
+/tools/emsdk/
+
+# CMake build trees
+/build/
+/build-*/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Generated test-kit audio and device rips (regenerate with tools/make_testkit.py)
+/testkit/*.wav
+/testkit/rips/
+
+# macOS
+.DS_Store

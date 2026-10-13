@@ -1,0 +1,124 @@
+name: build
+
+# Builds the atrac3 tool for Linux, macOS, Windows and WebAssembly, checks every build
+# byte-for-byte against the reference output (tests/expected.txt), and publishes the
+# binaries as a GitHub release when a v* tag is pushed.
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  EMSDK_VERSION: 6.0.10
+
+jobs:
+  native:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: linux-x86_64
+            os: ubuntu-24.04
+            cmake: -DATRAC3_STATIC=ON
+            exe: build/atrac3
+          - name: linux-arm64
+            os: ubuntu-24.04-arm
+            cmake: -DATRAC3_STATIC=ON
+            exe: build/atrac3
+          - name: macos-universal
+            os: macos-15
+            cmake: '"-DCMAKE_OSX_ARCHITECTURES=arm64;x86_64" -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0'
+            exe: build/atrac3
+          - name: windows-x86_64
+            os: windows-2025
+            cmake: -A x64
+            exe: build/Release/atrac3.exe
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release ${{ matrix.cmake }}
+      - name: Build
+        run: cmake --build build --config Release
+      - name: Test (byte-exact against the reference)
+        run: python tests/run_tests.py --bin ${{ matrix.exe }}
+      - name: Test the x86_64 slice under Rosetta
+        if: runner.os == 'macOS'
+        run: |
+          lipo build/atrac3 -thin x86_64 -output build/atrac3-x86_64
+          if build/atrac3-x86_64 --version; then
+            python tests/run_tests.py --bin build/atrac3-x86_64
+          else
+            echo "::warning::Rosetta 2 is not available; x86_64 slice not tested"
+          fi
+      - name: Package
+        shell: bash
+        run: |
+          mkdir dist
+          if [ "$RUNNER_OS" = Windows ]; then
+            cp "${{ matrix.exe }}" README.md dist/ && cd dist && 7z a ../atrac3-${{ matrix.name }}.zip . && cd ..
+          else
+            cp "${{ matrix.exe }}" README.md dist/ && tar -czf atrac3-${{ matrix.name }}.tar.gz -C dist .
+          fi
+      - uses: actions/upload-artifact@v7
+        with:
+          name: atrac3-${{ matrix.name }}
+          path: atrac3-${{ matrix.name }}.*
+
+  wasm:
+    name: wasm
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - name: Install Emscripten
+        run: |
+          git clone --depth 1 https://github.com/emscripten-core/emsdk.git "$RUNNER_TEMP/emsdk"
+          "$RUNNER_TEMP/emsdk/emsdk" install "$EMSDK_VERSION"
+          "$RUNNER_TEMP/emsdk/emsdk" activate "$EMSDK_VERSION"
+      - name: Build
+        run: |
+          source "$RUNNER_TEMP/emsdk/emsdk_env.sh"
+          emcmake cmake -S . -B build-wasm -DCMAKE_BUILD_TYPE=Release
+          cmake --build build-wasm
+      - name: Test (byte-exact against the reference)
+        run: python tests/run_tests.py --wasm build-wasm
+      - name: Package
+        run: |
+          cd build-wasm
+          zip ../atrac3-wasm.zip atrac3.mjs atrac3-core.mjs atrac3-core.wasm index.html
+      - uses: actions/upload-artifact@v7
+        with:
+          name: atrac3-wasm
+          path: atrac3-wasm.zip
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [native, wasm]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          path: dist
+          merge-multiple: true
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" dist/* --repo "$GITHUB_REPOSITORY" --title "$GITHUB_REF_NAME" --generate-notes

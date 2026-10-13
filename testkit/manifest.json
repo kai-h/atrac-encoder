@@ -1,0 +1,1168 @@
+{
+ "sample_rate": 44100,
+ "sync": {
+  "f0": 300.0,
+  "f1": 6000.0,
+  "seconds": 0.4,
+  "peak_dbfs": -12.0,
+  "a": "up-chirp",
+  "b": "down-chirp"
+ },
+ "tracks": [
+  {
+   "file": "01_calibration.wav",
+   "samples": 972552,
+   "sync_a": 22050,
+   "sync_b": 910665,
+   "probe_start": 61740,
+   "probe_samples": 826875,
+   "peak_dbfs": -6.57,
+   "segments": [
+    {
+     "name": "tone1k_-20",
+     "start": 0,
+     "length": 264600,
+     "desc": "1 kHz, -20 dBFS peak, both channels: path gain"
+    },
+    {
+     "name": "gap",
+     "start": 264600,
+     "length": 11025,
+     "desc": ""
+    },
+    {
+     "name": "left_only_1k",
+     "start": 275625,
+     "length": 132300,
+     "desc": "L only: channel map"
+    },
+    {
+     "name": "gap",
+     "start": 407925,
+     "length": 11025,
+     "desc": ""
+    },
+    {
+     "name": "right_only_2k",
+     "start": 418950,
+     "length": 132300,
+     "desc": "R only: channel map"
+    },
+    {
+     "name": "gap",
+     "start": 551250,
+     "length": 11025,
+     "desc": ""
+    },
+    {
+     "name": "white_-20rms",
+     "start": 562275,
+     "length": 264600,
+     "desc": "white noise, -20 dBFS RMS, identical channels"
+    }
+   ]
+  },
+  {
+   "file": "02_level_steps.wav",
+   "samples": 1512924,
+   "sync_a": 22050,
+   "sync_b": 1450890,
+   "probe_start": 61740,
+   "probe_samples": 1367100,
+   "peak_dbfs": -1.0,
+   "segments": [
+    {
+     "name": "tone1k_-1dB",
+     "start": 0,
+     "length": 44100,
+     "desc": "1 kHz tone at -1 dBFS peak"
+    },
+    {
+     "name": "tone1k_-4dB",
+     "start": 44100,
+     "length": 44100,
+     "desc": "1 kHz tone at -4 dBFS peak"
+    },
+    {
+     "name": "tone1k_-7dB",
+     "start": 88200,
+     "length": 44100,
+     "desc": "1 kHz tone at -7 dBFS peak"
+    },
+    {
+     "name": "tone1k_-10dB",
+     "start": 132300,
+     "length": 44100,
+     "desc": "1 kHz tone at -10 dBFS peak"
+    },
+    {
+     "name": "tone1k_-13dB",
+     "start": 176400,
+     "length": 44100,
+     "desc": "1 kHz tone at -13 dBFS peak"
+    },
+    {
+     "name": "tone1k_-16dB",
+     "start": 220500,
+     "length": 44100,
+     "desc": "1 kHz tone at -16 dBFS peak"
+    },
+    {
+     "name": "tone1k_-19dB",
+     "start": 264600,
+     "length": 44100,
+     "desc": "1 kHz tone at -19 dBFS peak"
+    },
+    {
+     "name": "tone1k_-22dB",
+     "start": 308700,
+     "length": 44100,
+     "desc": "1 kHz tone at -22 dBFS peak"
+    },
+    {
+     "name": "tone1k_-25dB",
+     "start": 352800,
+     "length": 44100,
+     "desc": "1 kHz tone at -25 dBFS peak"
+    },
+    {
+     "name": "tone1k_-28dB",
+     "start": 396900,
+     "length": 44100,
+     "desc": "1 kHz tone at -28 dBFS peak"
+    },
+    {
+     "name": "tone1k_-31dB",
+     "start": 441000,
+     "length": 44100,
+     "desc": "1 kHz tone at -31 dBFS peak"
+    },
+    {
+     "name": "tone1k_-34dB",
+     "start": 485100,
+     "length": 44100,
+     "desc": "1 kHz tone at -34 dBFS peak"
+    },
+    {
+     "name": "tone1k_-37dB",
+     "start": 529200,
+     "length": 44100,
+     "desc": "1 kHz tone at -37 dBFS peak"
+    },
+    {
+     "name": "tone1k_-40dB",
+     "start": 573300,
+     "length": 44100,
+     "desc": "1 kHz tone at -40 dBFS peak"
+    },
+    {
+     "name": "tone1k_-43dB",
+     "start": 617400,
+     "length": 44100,
+     "desc": "1 kHz tone at -43 dBFS peak"
+    },
+    {
+     "name": "tone1k_-46dB",
+     "start": 661500,
+     "length": 44100,
+     "desc": "1 kHz tone at -46 dBFS peak"
+    },
+    {
+     "name": "tone1k_-49dB",
+     "start": 705600,
+     "length": 44100,
+     "desc": "1 kHz tone at -49 dBFS peak"
+    },
+    {
+     "name": "tone1k_-52dB",
+     "start": 749700,
+     "length": 44100,
+     "desc": "1 kHz tone at -52 dBFS peak"
+    },
+    {
+     "name": "tone1k_-55dB",
+     "start": 793800,
+     "length": 44100,
+     "desc": "1 kHz tone at -55 dBFS peak"
+    },
+    {
+     "name": "tone1k_-58dB",
+     "start": 837900,
+     "length": 44100,
+     "desc": "1 kHz tone at -58 dBFS peak"
+    },
+    {
+     "name": "tone1k_-61dB",
+     "start": 882000,
+     "length": 44100,
+     "desc": "1 kHz tone at -61 dBFS peak"
+    },
+    {
+     "name": "tone1k_-64dB",
+     "start": 926100,
+     "length": 44100,
+     "desc": "1 kHz tone at -64 dBFS peak"
+    },
+    {
+     "name": "tone1k_-67dB",
+     "start": 970200,
+     "length": 44100,
+     "desc": "1 kHz tone at -67 dBFS peak"
+    },
+    {
+     "name": "tone1k_-70dB",
+     "start": 1014300,
+     "length": 44100,
+     "desc": "1 kHz tone at -70 dBFS peak"
+    },
+    {
+     "name": "tone1k_-73dB",
+     "start": 1058400,
+     "length": 44100,
+     "desc": "1 kHz tone at -73 dBFS peak"
+    },
+    {
+     "name": "tone1k_-76dB",
+     "start": 1102500,
+     "length": 44100,
+     "desc": "1 kHz tone at -76 dBFS peak"
+    },
+    {
+     "name": "tone1k_-79dB",
+     "start": 1146600,
+     "length": 44100,
+     "desc": "1 kHz tone at -79 dBFS peak"
+    },
+    {
+     "name": "tone1k_-82dB",
+     "start": 1190700,
+     "length": 44100,
+     "desc": "1 kHz tone at -82 dBFS peak"
+    },
+    {
+     "name": "tone1k_-85dB",
+     "start": 1234800,
+     "length": 44100,
+     "desc": "1 kHz tone at -85 dBFS peak"
+    },
+    {
+     "name": "tone1k_-88dB",
+     "start": 1278900,
+     "length": 44100,
+     "desc": "1 kHz tone at -88 dBFS peak"
+    },
+    {
+     "name": "tone1k_-91dB",
+     "start": 1323000,
+     "length": 44100,
+     "desc": "1 kHz tone at -91 dBFS peak"
+    }
+   ]
+  },
+  {
+   "file": "03_noise_steps.wav",
+   "samples": 873180,
+   "sync_a": 22050,
+   "sync_b": 811440,
+   "probe_start": 61740,
+   "probe_samples": 727650,
+   "peak_dbfs": -3.27,
+   "segments": [
+    {
+     "name": "pink_-16dB",
+     "start": 0,
+     "length": 66150,
+     "desc": "pink noise -16 dBFS RMS"
+    },
+    {
+     "name": "pink_-22dB",
+     "start": 66150,
+     "length": 66150,
+     "desc": "pink noise -22 dBFS RMS"
+    },
+    {
+     "name": "pink_-28dB",
+     "start": 132300,
+     "length": 66150,
+     "desc": "pink noise -28 dBFS RMS"
+    },
+    {
+     "name": "pink_-34dB",
+     "start": 198450,
+     "length": 66150,
+     "desc": "pink noise -34 dBFS RMS"
+    },
+    {
+     "name": "pink_-40dB",
+     "start": 264600,
+     "length": 66150,
+     "desc": "pink noise -40 dBFS RMS"
+    },
+    {
+     "name": "pink_-46dB",
+     "start": 330750,
+     "length": 66150,
+     "desc": "pink noise -46 dBFS RMS"
+    },
+    {
+     "name": "pink_-52dB",
+     "start": 396900,
+     "length": 66150,
+     "desc": "pink noise -52 dBFS RMS"
+    },
+    {
+     "name": "pink_-58dB",
+     "start": 463050,
+     "length": 66150,
+     "desc": "pink noise -58 dBFS RMS"
+    },
+    {
+     "name": "pink_-64dB",
+     "start": 529200,
+     "length": 66150,
+     "desc": "pink noise -64 dBFS RMS"
+    },
+    {
+     "name": "pink_-70dB",
+     "start": 595350,
+     "length": 66150,
+     "desc": "pink noise -70 dBFS RMS"
+    },
+    {
+     "name": "pink_-76dB",
+     "start": 661500,
+     "length": 66150,
+     "desc": "pink noise -76 dBFS RMS"
+    }
+   ]
+  },
+  {
+   "file": "04_transients.wav",
+   "samples": 1137780,
+   "sync_a": 22050,
+   "sync_b": 1076040,
+   "probe_start": 61740,
+   "probe_samples": 992250,
+   "peak_dbfs": -1.0,
+   "segments": [
+    {
+     "name": "bursts_on_tone",
+     "start": 0,
+     "length": 352800,
+     "desc": "decaying noise bursts at -3..-17 dB over a -40 dBFS 440 Hz bed"
+    },
+    {
+     "name": "gap",
+     "start": 352800,
+     "length": 11025,
+     "desc": ""
+    },
+    {
+     "name": "impulses",
+     "start": 363825,
+     "length": 264600,
+     "desc": "single-sample impulses, -1..-34 dBFS, random sub-frame positions"
+    },
+    {
+     "name": "gap",
+     "start": 628425,
+     "length": 11025,
+     "desc": ""
+    },
+    {
+     "name": "tone_onsets",
+     "start": 639450,
+     "length": 352800,
+     "desc": "hard-onset decaying tone bursts 100 Hz-15 kHz (pre-echo / gain control)"
+    }
+   ]
+  },
+  {
+   "file": "05_attacks.wav",
+   "samples": 851424,
+   "sync_a": 22050,
+   "sync_b": 789390,
+   "probe_start": 61740,
+   "probe_samples": 705600,
+   "peak_dbfs": -5.25,
+   "segments": [
+    {
+     "name": "attacks",
+     "start": 0,
+     "length": 705600,
+     "desc": "silence to loud band noise, 40 onsets at random positions within a frame"
+    }
+   ]
+  },
+  {
+   "file": "06_tones.wav",
+   "samples": 1534680,
+   "sync_a": 22050,
+   "sync_b": 1472940,
+   "probe_start": 61740,
+   "probe_samples": 1389150,
+   "peak_dbfs": -12.0,
+   "segments": [
+    {
+     "name": "tone_100",
+     "start": 0,
+     "length": 66150,
+     "desc": "pure tone 100 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_440",
+     "start": 66150,
+     "length": 66150,
+     "desc": "pure tone 440 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_1000",
+     "start": 132300,
+     "length": 66150,
+     "desc": "pure tone 1000 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_3000",
+     "start": 198450,
+     "length": 66150,
+     "desc": "pure tone 3000 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_5000",
+     "start": 264600,
+     "length": 66150,
+     "desc": "pure tone 5000 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_5450",
+     "start": 330750,
+     "length": 66150,
+     "desc": "pure tone 5450 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_5512.5",
+     "start": 396900,
+     "length": 66150,
+     "desc": "pure tone 5512.5 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_5575",
+     "start": 463050,
+     "length": 66150,
+     "desc": "pure tone 5575 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_7000",
+     "start": 529200,
+     "length": 66150,
+     "desc": "pure tone 7000 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_10000",
+     "start": 595350,
+     "length": 66150,
+     "desc": "pure tone 10000 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_10950",
+     "start": 661500,
+     "length": 66150,
+     "desc": "pure tone 10950 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_11025",
+     "start": 727650,
+     "length": 66150,
+     "desc": "pure tone 11025 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_11100",
+     "start": 793800,
+     "length": 66150,
+     "desc": "pure tone 11100 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_13000",
+     "start": 859950,
+     "length": 66150,
+     "desc": "pure tone 13000 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_15000",
+     "start": 926100,
+     "length": 66150,
+     "desc": "pure tone 15000 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_16000",
+     "start": 992250,
+     "length": 66150,
+     "desc": "pure tone 16000 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_16450",
+     "start": 1058400,
+     "length": 66150,
+     "desc": "pure tone 16450 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_16537.5",
+     "start": 1124550,
+     "length": 66150,
+     "desc": "pure tone 16537.5 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_16625",
+     "start": 1190700,
+     "length": 66150,
+     "desc": "pure tone 16625 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_18000",
+     "start": 1256850,
+     "length": 66150,
+     "desc": "pure tone 18000 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    },
+    {
+     "name": "tone_20000",
+     "start": 1323000,
+     "length": 66150,
+     "desc": "pure tone 20000 Hz at -12 dBFS (QMF edges 5512.5/11025/16537.5)"
+    }
+   ]
+  },
+  {
+   "file": "07_sweep.wav",
+   "samples": 1027824,
+   "sync_a": 22050,
+   "sync_b": 965790,
+   "probe_start": 61740,
+   "probe_samples": 882000,
+   "peak_dbfs": -20.0,
+   "segments": [
+    {
+     "name": "log_sweep",
+     "start": 0,
+     "length": 882000,
+     "desc": "log sweep 20 Hz-21 kHz, -20 dBFS (bandwidth per mode)"
+    }
+   ]
+  },
+  {
+   "file": "08_harmonic.wav",
+   "samples": 686196,
+   "sync_a": 22050,
+   "sync_b": 624015,
+   "probe_start": 61740,
+   "probe_samples": 540225,
+   "peak_dbfs": -9.94,
+   "segments": [
+    {
+     "name": "saw110",
+     "start": 0,
+     "length": 264600,
+     "desc": "harmonic complex 110 Hz, 1/n amplitudes"
+    },
+    {
+     "name": "gap",
+     "start": 264600,
+     "length": 11025,
+     "desc": ""
+    },
+    {
+     "name": "vibrato220",
+     "start": 275625,
+     "length": 264600,
+     "desc": "harmonic complex 220 Hz with 5 Hz vibrato"
+    }
+   ]
+  },
+  {
+   "file": "09_masking.wav",
+   "samples": 3519180,
+   "sync_a": 22050,
+   "sync_b": 3457440,
+   "probe_start": 61740,
+   "probe_samples": 3373650,
+   "peak_dbfs": -3.42,
+   "segments": [
+    {
+     "name": "mask_1000_707_-30",
+     "start": 0,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 707.1 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_1000_707_-45",
+     "start": 66150,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 707.1 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_1000_707_-60",
+     "start": 132300,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 707.1 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_1000_870_-30",
+     "start": 198450,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 870.6 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_1000_870_-45",
+     "start": 264600,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 870.6 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_1000_870_-60",
+     "start": 330750,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 870.6 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_1000_933_-30",
+     "start": 396900,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 933.0 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_1000_933_-45",
+     "start": 463050,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 933.0 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_1000_933_-60",
+     "start": 529200,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 933.0 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_1000_1071_-30",
+     "start": 595350,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 1071.8 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_1000_1071_-45",
+     "start": 661500,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 1071.8 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_1000_1071_-60",
+     "start": 727650,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 1071.8 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_1000_1189_-30",
+     "start": 793800,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 1189.2 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_1000_1189_-45",
+     "start": 859950,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 1189.2 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_1000_1189_-60",
+     "start": 926100,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 1189.2 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_1000_1414_-30",
+     "start": 992250,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 1414.2 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_1000_1414_-45",
+     "start": 1058400,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 1414.2 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_1000_1414_-60",
+     "start": 1124550,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 1414.2 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_1000_2000_-30",
+     "start": 1190700,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 2000.0 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_1000_2000_-45",
+     "start": 1256850,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 2000.0 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_1000_2000_-60",
+     "start": 1323000,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 2000.0 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_1000_4000_-30",
+     "start": 1389150,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 4000.0 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_1000_4000_-45",
+     "start": 1455300,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 4000.0 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_1000_4000_-60",
+     "start": 1521450,
+     "length": 66150,
+     "desc": "masker 1000 Hz -10 dBFS + probe 4000.0 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_4000_2828_-30",
+     "start": 1587600,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 2828.4 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_4000_2828_-45",
+     "start": 1653750,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 2828.4 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_4000_2828_-60",
+     "start": 1719900,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 2828.4 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_4000_3482_-30",
+     "start": 1786050,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 3482.2 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_4000_3482_-45",
+     "start": 1852200,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 3482.2 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_4000_3482_-60",
+     "start": 1918350,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 3482.2 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_4000_3732_-30",
+     "start": 1984500,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 3732.1 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_4000_3732_-45",
+     "start": 2050650,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 3732.1 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_4000_3732_-60",
+     "start": 2116800,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 3732.1 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_4000_4287_-30",
+     "start": 2182950,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 4287.1 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_4000_4287_-45",
+     "start": 2249100,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 4287.1 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_4000_4287_-60",
+     "start": 2315250,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 4287.1 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_4000_4756_-30",
+     "start": 2381400,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 4756.8 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_4000_4756_-45",
+     "start": 2447550,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 4756.8 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_4000_4756_-60",
+     "start": 2513700,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 4756.8 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_4000_5656_-30",
+     "start": 2579850,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 5656.9 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_4000_5656_-45",
+     "start": 2646000,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 5656.9 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_4000_5656_-60",
+     "start": 2712150,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 5656.9 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_4000_8000_-30",
+     "start": 2778300,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 8000.0 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_4000_8000_-45",
+     "start": 2844450,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 8000.0 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_4000_8000_-60",
+     "start": 2910600,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 8000.0 Hz at -60 dB below"
+    },
+    {
+     "name": "mask_4000_16000_-30",
+     "start": 2976750,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 16000.0 Hz at -30 dB below"
+    },
+    {
+     "name": "mask_4000_16000_-45",
+     "start": 3042900,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 16000.0 Hz at -45 dB below"
+    },
+    {
+     "name": "mask_4000_16000_-60",
+     "start": 3109050,
+     "length": 66150,
+     "desc": "masker 4000 Hz -10 dBFS + probe 16000.0 Hz at -60 dB below"
+    },
+    {
+     "name": "noisemask_-20",
+     "start": 3175200,
+     "length": 66150,
+     "desc": "narrow-band noise masker at 1 kHz + probe 1231 Hz, -20 dB"
+    },
+    {
+     "name": "noisemask_-30",
+     "start": 3241350,
+     "length": 66150,
+     "desc": "narrow-band noise masker at 1 kHz + probe 1231 Hz, -30 dB"
+    },
+    {
+     "name": "noisemask_-40",
+     "start": 3307500,
+     "length": 66150,
+     "desc": "narrow-band noise masker at 1 kHz + probe 1231 Hz, -40 dB"
+    }
+   ]
+  },
+  {
+   "file": "10_noise_spectra.wav",
+   "samples": 1380624,
+   "sync_a": 22050,
+   "sync_b": 1318590,
+   "probe_start": 61740,
+   "probe_samples": 1234800,
+   "peak_dbfs": -4.95,
+   "segments": [
+    {
+     "name": "white",
+     "start": 0,
+     "length": 132300,
+     "desc": "white noise -20 dBFS RMS"
+    },
+    {
+     "name": "pink",
+     "start": 132300,
+     "length": 132300,
+     "desc": "pink noise"
+    },
+    {
+     "name": "brown",
+     "start": 264600,
+     "length": 132300,
+     "desc": "brown noise"
+    },
+    {
+     "name": "band_20_2000",
+     "start": 396900,
+     "length": 88200,
+     "desc": "band noise 20-2000 Hz"
+    },
+    {
+     "name": "band_2000_5512",
+     "start": 485100,
+     "length": 88200,
+     "desc": "band noise 2000-5512 Hz"
+    },
+    {
+     "name": "band_5512_11025",
+     "start": 573300,
+     "length": 88200,
+     "desc": "band noise 5512-11025 Hz"
+    },
+    {
+     "name": "band_11025_16537",
+     "start": 661500,
+     "length": 88200,
+     "desc": "band noise 11025-16537 Hz"
+    },
+    {
+     "name": "band_16537_22000",
+     "start": 749700,
+     "length": 88200,
+     "desc": "band noise 16537-22000 Hz"
+    },
+    {
+     "name": "notch_1000",
+     "start": 837900,
+     "length": 132300,
+     "desc": "white noise with 1/3-octave notch at 1000 Hz"
+    },
+    {
+     "name": "notch_4000",
+     "start": 970200,
+     "length": 132300,
+     "desc": "white noise with 1/3-octave notch at 4000 Hz"
+    },
+    {
+     "name": "notch_10000",
+     "start": 1102500,
+     "length": 132300,
+     "desc": "white noise with 1/3-octave notch at 10000 Hz"
+    }
+   ]
+  },
+  {
+   "file": "11_tone_in_noise.wav",
+   "samples": 586824,
+   "sync_a": 22050,
+   "sync_b": 524790,
+   "probe_start": 61740,
+   "probe_samples": 441000,
+   "peak_dbfs": -5.07,
+   "segments": [
+    {
+     "name": "tone_snr_+20",
+     "start": 0,
+     "length": 88200,
+     "desc": "1 kHz tone at +20 dB SNR in -30 dBFS white noise"
+    },
+    {
+     "name": "tone_snr_+10",
+     "start": 88200,
+     "length": 88200,
+     "desc": "1 kHz tone at +10 dB SNR in -30 dBFS white noise"
+    },
+    {
+     "name": "tone_snr_+0",
+     "start": 176400,
+     "length": 88200,
+     "desc": "1 kHz tone at +0 dB SNR in -30 dBFS white noise"
+    },
+    {
+     "name": "tone_snr_-10",
+     "start": 264600,
+     "length": 88200,
+     "desc": "1 kHz tone at -10 dB SNR in -30 dBFS white noise"
+    },
+    {
+     "name": "tone_snr_-20",
+     "start": 352800,
+     "length": 88200,
+     "desc": "1 kHz tone at -20 dB SNR in -30 dBFS white noise"
+    }
+   ]
+  },
+  {
+   "file": "12_stereo.wav",
+   "samples": 1998024,
+   "sync_a": 22050,
+   "sync_b": 1935990,
+   "probe_start": 61740,
+   "probe_samples": 1852200,
+   "peak_dbfs": -6.81,
+   "segments": [
+    {
+     "name": "noise_L",
+     "start": 0,
+     "length": 132300,
+     "desc": "noise left only"
+    },
+    {
+     "name": "noise_R",
+     "start": 132300,
+     "length": 132300,
+     "desc": "noise right only"
+    },
+    {
+     "name": "noise_centre",
+     "start": 264600,
+     "length": 132300,
+     "desc": "identical noise both channels"
+    },
+    {
+     "name": "noise_antiphase",
+     "start": 396900,
+     "length": 132300,
+     "desc": "noise, right inverted"
+    },
+    {
+     "name": "noise_wide",
+     "start": 529200,
+     "length": 132300,
+     "desc": "independent noise per channel"
+    },
+    {
+     "name": "corr_sweep",
+     "start": 661500,
+     "length": 352800,
+     "desc": "inter-channel correlation sweep +1 -> -1"
+    },
+    {
+     "name": "pan_noise",
+     "start": 1014300,
+     "length": 352800,
+     "desc": "noise panned L -> R"
+    },
+    {
+     "name": "pan_tone",
+     "start": 1367100,
+     "length": 352800,
+     "desc": "1 kHz tone panned L -> R"
+    },
+    {
+     "name": "two_tones",
+     "start": 1719900,
+     "length": 132300,
+     "desc": "L 1 kHz, R 1.5 kHz"
+    }
+   ]
+  },
+  {
+   "file": "13_quiet.wav",
+   "samples": 630924,
+   "sync_a": 22050,
+   "sync_b": 568890,
+   "probe_start": 61740,
+   "probe_samples": 485100,
+   "peak_dbfs": -7.95,
+   "segments": [
+    {
+     "name": "digital_zero",
+     "start": 0,
+     "length": 88200,
+     "desc": "digital silence"
+    },
+    {
+     "name": "tpdf_1lsb",
+     "start": 88200,
+     "length": 88200,
+     "desc": "TPDF dither noise +-1 LSB"
+    },
+    {
+     "name": "noise_-80",
+     "start": 176400,
+     "length": 88200,
+     "desc": "white noise -80 dBFS RMS"
+    },
+    {
+     "name": "tone_-90",
+     "start": 264600,
+     "length": 88200,
+     "desc": "1 kHz at -90 dBFS"
+    },
+    {
+     "name": "silence_burst_silence",
+     "start": 352800,
+     "length": 132300,
+     "desc": "silence, 1 s noise, silence (hard edges)"
+    }
+   ]
+  },
+  {
+   "file": "14_pressure.wav",
+   "samples": 675024,
+   "sync_a": 22050,
+   "sync_b": 612990,
+   "probe_start": 61740,
+   "probe_samples": 529200,
+   "peak_dbfs": -1.95,
+   "segments": [
+    {
+     "name": "white_-16",
+     "start": 0,
+     "length": 176400,
+     "desc": "full-band white noise, -16 dBFS RMS"
+    },
+    {
+     "name": "multitone60",
+     "start": 176400,
+     "length": 176400,
+     "desc": "60 random sine tones 60 Hz-18 kHz, dense, -3 dBFS peak"
+    },
+    {
+     "name": "hf_noise",
+     "start": 352800,
+     "length": 176400,
+     "desc": "treble-heavy noise (+3 dB/oct), -16 dBFS RMS"
+    }
+   ]
+  },
+  {
+   "file": "15_music.wav",
+   "samples": 1204224,
+   "sync_a": 22050,
+   "sync_b": 1142190,
+   "probe_start": 61740,
+   "probe_samples": 1058400,
+   "peak_dbfs": -1.5,
+   "segments": [
+    {
+     "name": "synth_song",
+     "start": 0,
+     "length": 1058400,
+     "desc": "synthetic pop-like excerpt (bass, piano-like chords, hats, snare)"
+    }
+   ]
+  }
+ ]
+}

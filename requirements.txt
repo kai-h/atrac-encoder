@@ -1,0 +1,7 @@
+# Reference models (spec/reference) need only numpy.
+numpy==2.5.4
+# Verification and analysis tools (tools/) additionally need:
+unicorn==2.1.4
+pefile==2024.8.26
+capstone==5.0.9
+pyelftools==0.33
