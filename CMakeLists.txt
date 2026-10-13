@@ -33,14 +33,14 @@ if(UNIX AND NOT APPLE AND NOT EMSCRIPTEN)
 endif()
 
 if(EMSCRIPTEN)
-  # Browser module: ES6 factory exporting the whole-file API (see web/)
+  # Browser module: ES6 factory exporting the whole-file API and the streaming encoder (see web/)
   add_executable(atrac3_wasm web/glue.c)
   set_target_properties(atrac3_wasm PROPERTIES OUTPUT_NAME atrac3-core SUFFIX ".mjs")
   target_link_libraries(atrac3_wasm atrac3_lib)
   target_link_options(atrac3_wasm PRIVATE
     -sMODULARIZE=1 -sEXPORT_ES6=1 -sEXPORT_NAME=createAtrac3Module
     -sENVIRONMENT=web,worker,node -sALLOW_MEMORY_GROWTH=1 -sSTACK_SIZE=1048576
-    "-sEXPORTED_FUNCTIONS=['_at3w_encode','_at3w_decode','_at3w_result','_at3w_result_len','_malloc','_free']"
+    "-sEXPORTED_FUNCTIONS=['_at3w_encode','_at3w_decode','_at3w_result','_at3w_result_len','_at3_encoder_create','_at3_encoder_destroy','_at3_encoder_frame_bytes','_at3_encoder_max_output','_at3_encoder_write','_at3_encoder_finish','_malloc','_free']"
     "-sEXPORTED_RUNTIME_METHODS=['HEAPU8','UTF8ToString']")
   configure_file(web/atrac3.mjs atrac3.mjs COPYONLY)
   configure_file(web/index.html index.html COPYONLY)

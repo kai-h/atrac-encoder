@@ -92,7 +92,7 @@ Sony uses two separate ATRAC3 encoders. The LP2 encoder also handles 66 kbps mon
 
 Emscripten compiles the same library, plus two small files from [web/](web/):
 
-- [web/glue.c](web/glue.c) exports the whole-file functions to JavaScript, keeping each result in the module until the next call so JavaScript never handles pointers to pointers.
+- [web/glue.c](web/glue.c) exports the whole-file functions to JavaScript, keeping each result in the module until the next call so JavaScript never handles pointers to pointers. The streaming encoder's functions from `atrac3.h` are exported as they are.
 - [web/atrac3.mjs](web/atrac3.mjs) is the JavaScript API, an ES module that works in browsers, web workers and Node. It copies the input into the module's memory, calls the export and returns a copy of the result, throwing an `Error` with the library's message on failure.
 
 ```js
@@ -102,7 +102,19 @@ const at3 = atrac3.encodeWav(wavBytes, 132);   // Uint8Array .at3 file
 const wav = atrac3.decodeAt3(at3);             // Uint8Array 16-bit WAV file
 ```
 
-`encodeWav` takes the same bitrates as the command-line tool, and 0 selects 132 kbps for stereo and 66 kbps for mono. [web/index.html](web/index.html) is the demo page. [tests/wasm_cli.mjs](tests/wasm_cli.mjs) wraps the module in the command-line tool's arguments, which lets `tests/run_tests.py` run the same tests against both builds.
+`encodeWav` takes the same bitrates as the command-line tool, and 0 selects 132 kbps for stereo and 66 kbps for mono.
+
+The streaming encoder takes raw interleaved PCM and returns raw ATRAC3 frames without a header. Its state carries over from one `write` to the next, so audio fed in pieces encodes exactly as one continuous stream would, and only `finish` ends the stream. This is what gapless album uploads need: write each track in turn and finish after the last, and the frames returned for each track join seamlessly. Because the encoder needs look-ahead, each call's frames stop 50 to 73 ms short of the audio given so far, and the rest comes out with the next call, so a track mark placed between them lands that much early. Joined together, the outputs are byte-identical to at3tool's encoding of the joined audio, which `tests/run_tests.py --wasm` checks by feeding every test vector in pieces of awkward sizes.
+
+```js
+const enc = atrac3.createEncoder(132, 2);      // kbps, channels
+const track1 = enc.write(pcm1);                // Int16Array -> Uint8Array of whole frames
+const track2 = enc.write(pcm2);                // continues track 1 without a gap
+const tail = enc.finish();                     // the remaining frames
+enc.free();
+```
+
+[web/index.html](web/index.html) is the demo page. [tests/wasm_cli.mjs](tests/wasm_cli.mjs) wraps the module in the command-line tool's arguments, which lets `tests/run_tests.py` run the same tests against both builds.
 
 ## Not included
 

@@ -4,7 +4,8 @@ Generates the test vectors (tests/gen_vectors.py), encodes each in every mode it
 decodes the result, and compares SHA-256 hashes with tests/expected.txt.  The expected
 encoder output was verified byte-identical to the Python reference models (and so to
 Sony's at3tool) with tools/verify_c.py before it was recorded.  Also checks the RIFF
-parser against oversized chunk sizes (riff_checks).
+parser against oversized chunk sizes (riff_checks), and with --wasm that the streaming
+encoder fed in pieces (wasm_cli.mjs -split) matches the whole-file encoder byte for byte.
 
 Usage:
   python tests/run_tests.py [--bin build/atrac3]        native command-line tool
@@ -77,7 +78,7 @@ def main():
     tmp = tempfile.mkdtemp()
     try:
         gen_vectors.main_into(tmp)
-        got = {}
+        got, split_bad = {}, []
         for name, gen, n in gen_vectors.VECTORS:
             wav = os.path.join(tmp, name + '.wav')
             ch = 1 if name.endswith('_mono') else 2
@@ -88,6 +89,10 @@ def main():
                 subprocess.run(tool + ['-d', at3, dec], check=True)
                 got[os.path.basename(at3)] = sha(at3)
                 got[os.path.basename(dec)] = sha(dec)
+                if a.wasm:
+                    subprocess.run(tool + ['-e', '-split', '-br', str(kbps), wav, at3 + '.split'], check=True)
+                    if sha(at3 + '.split') != got[os.path.basename(at3)]:
+                        split_bad.append(os.path.basename(at3))
         riff_fails = riff_checks(tool, tmp, got)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
@@ -110,7 +115,12 @@ def main():
     for k in riff_fails:
         print('FAIL', k)
     print('RIFF chunk-size checks: %s' % ('%d failed' % len(riff_fails) if riff_fails else 'ok'))
-    sys.exit(1 if bad or riff_fails else 0)
+    if a.wasm:
+        for k in split_bad:
+            print('FAIL streaming', k)
+        n_split = sum(len(MODES[1 if v[0].endswith('_mono') else 2]) for v in gen_vectors.VECTORS)
+        print('streaming encoder in pieces: %d/%d match' % (n_split - len(split_bad), n_split))
+    sys.exit(1 if bad or riff_fails or split_bad else 0)
 
 
 if __name__ == '__main__':
