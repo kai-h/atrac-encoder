@@ -1,0 +1,103 @@
+{
+  "files": [
+    {
+      "file": "vectors/silence.lp2.at3",
+      "sha256": "8b2b5347fc23204c9996033a632cdf5175e62d198fb2f8c7efe9863814fdc525"
+    },
+    {
+      "file": "vectors/silence.lp4.at3",
+      "sha256": "340a82e13e207a78a49bbe39a8e9d31e1474d310c314be26e4ec7a4726447365"
+    },
+    {
+      "file": "vectors/tone.lp2.at3",
+      "sha256": "b6673f37a846a8777879390348cc2182a4ba17e9bd39f969618b6faebe6acd6a"
+    },
+    {
+      "file": "vectors/tone.lp4.at3",
+      "sha256": "43cfeb037a1a3424faefd7a7d1495eaf870a400841547a975bc3122731d8bce9"
+    },
+    {
+      "file": "vectors/quiet.lp2.at3",
+      "sha256": "cd078329e7c1e6b8dd61d1f9a55d49665a9008d969da42c27bf4b5cf3eaace9a"
+    },
+    {
+      "file": "vectors/quiet.lp4.at3",
+      "sha256": "dde3d29b93c6e5384512e1a4375ed1ea6ef8b89a4687c51ebe7c11691a7de5e8"
+    },
+    {
+      "file": "vectors/transients.lp2.at3",
+      "sha256": "ddcc9e44ddda568a41318d3c03dc745a9ddccc607927d950ec99c07956a22def"
+    },
+    {
+      "file": "vectors/transients.lp4.at3",
+      "sha256": "42920ef660ead849df28128286fc2f6f5c0c595228224e5c3794d59b552ab36f"
+    },
+    {
+      "file": "vectors/stereo.lp2.at3",
+      "sha256": "4ad5061d670fe157e82d00b7625319279c0c13ab4fed5a6ac043294f8815c7bb"
+    },
+    {
+      "file": "vectors/stereo.lp4.at3",
+      "sha256": "e3c8142cd01becc951cd9915cd4fcaad658ec37f968595066832ffafe5c1ba32"
+    },
+    {
+      "file": "vectors/clipping.lp2.at3",
+      "sha256": "165dad09cfb99ce5dd351bfad261669ca4d1a1b8243ee420e71512637c1fb94b"
+    },
+    {
+      "file": "vectors/clipping.lp4.at3",
+      "sha256": "f9efd15541679b2b20b67ca32e08e54aeebaa36ab90887a6063859699f2564ff"
+    },
+    {
+      "file": "vectors/tone_noise.lp2.at3",
+      "sha256": "e6f99e02ebe06dc11fa7b959742e35a251c5992d13487415bfcdfacbb2fd03e3"
+    },
+    {
+      "file": "vectors/tone_noise.lp4.at3",
+      "sha256": "f2d15e8d0618c1fbde3bd653801351a3c54980f90f1a9180efeccb4a01954e7f"
+    },
+    {
+      "file": "vectors/quiet_clicks.lp2.at3",
+      "sha256": "2c2fac1b98a7d5e7410c0d14cf02b84452248b81bb71821bbf12e1949ffb4a87"
+    },
+    {
+      "file": "vectors/quiet_clicks.lp4.at3",
+      "sha256": "c17abf726c81fde7b30adc7a33346656dcc211827e64f13f09d37ecdb8eba0a4"
+    },
+    {
+      "file": "vectors/tail_0.lp2.at3",
+      "sha256": "2d7175741ed1359db4bcb5fc9112464aa93ba20fd115f61249c7356f87a153f1"
+    },
+    {
+      "file": "vectors/tail_0.lp4.at3",
+      "sha256": "7f4569cac8bd2b07892a70f6bb07e151b00760bdf72b65dde01e362276aa1fa5"
+    },
+    {
+      "file": "vectors/tail_885.lp2.at3",
+      "sha256": "6faec764157c350441bf4f60bf383b0e3e79f12a8455d8fe2f47589fdee82ad9"
+    },
+    {
+      "file": "vectors/tail_885.lp4.at3",
+      "sha256": "0ef0d3e759a34a06cbc4951b84ab80c3844efa2f7239ac98b59383663e6f7a60"
+    },
+    {
+      "file": "vectors/tail_886.lp2.at3",
+      "sha256": "cf4a4f1d80ba8d28dab8c6eda499f1b3fba20d8f5746da29edd8eb78c2d0ea3f"
+    },
+    {
+      "file": "vectors/tail_886.lp4.at3",
+      "sha256": "a9221b3942de9c90271e35145aa65ecb04b15c031f791829cdc8d57dc5221b23"
+    },
+    {
+      "file": "vectors/tail_1023.lp2.at3",
+      "sha256": "e73f39ce2b8d65d569643b23e15e13e3f227c406674888230ba6a47e0409918c"
+    },
+    {
+      "file": "vectors/tail_1023.lp4.at3",
+      "sha256": "26d3a74fe7f678483c051fa0ddf52fff363a3bb4c1f80fe911d2e30c2d2b22ee"
+    }
+  ],
+  "format_version": 1,
+  "oracle": "psp_at3tool.exe 3.0.0.0 under tools/at3emu.py",
+  "scope": "Complete non-looping .at3 files; intermediate checkpoints are model-derived."
+}

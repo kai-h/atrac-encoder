@@ -8,7 +8,7 @@ remain model-derived.
 
 ## Encoding vectors
 
-`cases.json` lists ten stereo inputs and both expected modes for each: LP2 at 132 kbps with
+`cases.json` lists twelve stereo inputs and both expected modes for each: LP2 at 132 kbps with
 384-byte independent-channel frames, and LP4 at 66 kbps with 192-byte joint-stereo frames.
 
 Inputs are 16-bit little-endian, 44.1 kHz, two-channel WAVs. Encode the whole file with the
@@ -20,8 +20,11 @@ frame hashes. `../assets-manifest.json` gives complete-file hashes and sizes, in
 
 Cases cover silence, a correlated tone, weak tones and ±1 LSB input, transient noise and clicks,
 left/right dominance and stereo transitions, clipping and broadband pressure, and final
-source-plus-lead-in remainders 0, 885, 886 and 1023. Recipes use integer arithmetic, an explicit
-tone lookup table, and a specified 32-bit LCG; their source is `generate_assets.py`.
+source-plus-lead-in remainders 0, 885, 886 and 1023. Two cases separate readings that the
+others do not: `tone_noise` (LP2) depends on Chapter 7 §10.6 fixing subbands on single-tone
+frames, and `quiet_clicks` (LP4) on Chapter 8 §7.3 comparing the signed decision for gain
+mode. Recipes use integer arithmetic, an explicit tone lookup table, and a specified 32-bit
+LCG; their source is `generate_assets.py`.
 These are compact regression vectors, not exhaustive branch coverage or a quality benchmark.
 Mono, 105 kbps and PSP loop framing are outside this vector set.
 
@@ -54,8 +57,8 @@ From the repository root:
 
 ```sh
 python spec/verify_assets.py                         # frozen hashes; standard library only
-python spec/verify_assets.py --outputs /path/to/out  # compare twenty .at3 outputs
-python spec/verify_assets.py --outputs /path/to/out --raw  # compare twenty .frames outputs
+python spec/verify_assets.py --outputs /path/to/out  # compare twenty-four .at3 outputs
+python spec/verify_assets.py --outputs /path/to/out --raw  # compare twenty-four .frames outputs
 python spec/generate_assets.py --check              # recompute model outputs; needs NumPy
 ```
 

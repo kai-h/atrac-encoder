@@ -289,6 +289,102 @@
       "samples_per_channel": 8192
     },
     {
+      "description": "Tone in noise: single-tone frames that fix subbands without multitone bits.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 955,
+      "modes": [
+        {
+          "at3": "tone_noise.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 10,
+          "frame_sha256": [
+            "4bd6c7b29126d7a1da27af64f3363788f48f8ce93bbe69711c0fddb28a2bf12d",
+            "ff4d52567ac432d293a7fc1b454c232657626467b0acc87014b64860bedf5804",
+            "569c92c36e9c76f37802447593d90d2811810631e595dd9dad113717cf002492",
+            "f2cb3e6788a4555a268b867558db4fdf702c881ccdcd608e0ad66482c5fec2f2",
+            "ba85910e925c67b8b273951c0c28df43493f05a80de111caf08416aa129fa7f7",
+            "30e07385f53ba2ba97d43d2e4e4fb85e2e708697f42310197d7ea74106bbb962",
+            "2dd9ccd4645271172c5321b3b75a587c0f99cfcb31a7e1dabd2f385cb5db116c",
+            "eedf083918d0b3a2153db671489423421f06bbf6f32cc27b6d1037f37b75c173",
+            "7d5acfb69f5a980f9d636f29a471313d17da20e3c0a653cdd339f84006087b77",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc"
+          ],
+          "mode": "lp2",
+          "raw_frames": "tone_noise.lp2.frames"
+        },
+        {
+          "at3": "tone_noise.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 10,
+          "frame_sha256": [
+            "c48a2edc40a8bb2dc28365880063ca47241d20de795026e923c0e4bec57ed531",
+            "d061ceb59b688e9d82cbfbc37cf171d976e35d75fd1708ad99b6e73eabc684b2",
+            "c10484a931b8837549ad0912d9ca2f37c91f28107d50d0172dbbd56276198172",
+            "0c0766c22c5cf10bbcb912d75253d7f5e6dbb709a5dd41edc081605878676b37",
+            "8bffd539c926665a564d000e37cbb01f551d4c30dfc6dd83e44a5e205a0bdd81",
+            "6f22cdb420d3ed69a75248db3138c7116a1630ca4c73a963e21e6572c774f8c9",
+            "3931fef34473bc83248120b7c470aeba91922d420d118ad298fd6668d4a5d8c0",
+            "b85fdd7a55bf64590c04a980cc565fea56d31fbe6a48bc3f2d712dbe2b205cfc",
+            "cf2700fe87bafcd5d431a3870c173efdc67158502161dbca03525547f617c73b",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969"
+          ],
+          "mode": "lp4",
+          "raw_frames": "tone_noise.lp4.frames"
+        }
+      ],
+      "name": "tone_noise",
+      "pcm": "tone_noise.wav",
+      "samples_per_channel": 8192
+    },
+    {
+      "description": "Near-silence with sparse clicks: quiet joint-stereo gain modes.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 955,
+      "modes": [
+        {
+          "at3": "quiet_clicks.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 10,
+          "frame_sha256": [
+            "eb31e2fac0e65a88137fecb3c0d2513d784ba5c0dcac0b2333c27f3880f8dc49",
+            "bec391f9e153d808eef9e8862ce4bcfbb8ea648460cab8364e346b53d4bac717",
+            "b24d27dd61bb3590da8673b9feeba321f75955592974a1bddcb4b1c5b500995a",
+            "a46bb23ec744f8c6dd1c8980bc81424c0a6a2929c53ac8a2c4b782e0caa1cbab",
+            "84141baace347c2335b592954fe4ae6dc5e371b30efb513ababfd4bd2c861aaf",
+            "5d97b20c1c82315592322c9a5efbeb84b99a10b069d5c607d670bae9c712dc44",
+            "2ebb0173c09fd7ec1f123171a3e7842d3e12153c1e20560cea5d95518311216e",
+            "4b16e6d50544f25fdcd4f4e44784f0680b260b08ce88ed0cd50b243cdb36bc18",
+            "4b15f0ab7d3bae7e81dda15e51adb9c09eac51fe319459232ead7b874ecee58b",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc"
+          ],
+          "mode": "lp2",
+          "raw_frames": "quiet_clicks.lp2.frames"
+        },
+        {
+          "at3": "quiet_clicks.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 10,
+          "frame_sha256": [
+            "93fcac2046d47c7747d78bb135dbf85840b8be717bd0f2c9af63f0ad9ad6e884",
+            "d288d4df0bf981845263ae58fdf03686ffa6da7d0d1999eb0b15f911f5b73f24",
+            "d4c7021bd29e140e05f9b3adc2eb1f073da959e18162bbb2f1d080abb10bc6c5",
+            "9cbc2790e8b273f7598f6a63714ee3538eaf99798c22dc97b3d3c72098f748a5",
+            "915cf8396c0c86fa528ba9d85236f9424ebaab1f41a3d88f12819170bc59b9b1",
+            "5da20418f06ab09252620f0d16755e40fce5ddc2419ab22d8054649ec5909f56",
+            "d1b8bd02fe3605ea02b2c8b3b70ce14a5683256a7e058bcdd6d423a54c37eded",
+            "f711095d65cd34b0aabc731a456297a9fe003cc0ec0fbe8385469c7a728ce7b2",
+            "fc9ce651599114ee62c826fbe02634dacd726b39b1431f9352f8d47df5fabc3a",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969"
+          ],
+          "mode": "lp4",
+          "raw_frames": "quiet_clicks.lp4.frames"
+        }
+      ],
+      "name": "quiet_clicks",
+      "pcm": "quiet_clicks.wav",
+      "samples_per_channel": 8192
+    },
+    {
       "description": "(N + 955) mod 1024 = 0.",
       "empty_analysis_calls": 3,
       "final_data_block_samples": 1024,

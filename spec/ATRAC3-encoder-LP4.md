@@ -77,7 +77,8 @@ Per unit c the encoder derives (0x434090, 0x434580 [Encoder.__init__]):
   (id, band count, tone group count, subband count, coding mode); the extra byte is the
   joint-stereo header. The 66 kbps unit-1 value is replaced every frame (section 9).
 - bandwidth index `idx = floor(hz · 2048 / 44100)` and the subband limit `nsub_max` = 1 + the
-  smallest `i` (0 ≤ i < 31) with `idx ≤ SB_START[i+1]`: 26 / 13 at 66 kbps, 27 / 27 at 105 kbps.
+  smallest `i` (0 ≤ i < 31) with `idx ≤ SB_START[i+1]`: 27 / 12 at 66 kbps (idx 575 / 125),
+  28 / 28 at 105 kbps (idx 636).
 - for the joint-stereo unit: the number of *matrixed* QMF bands
   `limit = max(1, floor((idx + 255) / 256))` = 1 at 66 kbps. Without joint stereo, limit = −1 and the
   whole stereo stage is skipped.
@@ -295,7 +296,9 @@ the last 32 samples of the previous analysis), the gain points `loc[k]`, `lev[k]
 
 Inputs: `A[0..63]` = previous peaks (32) followed by the new peaks (32); `mode`:
 for an ordinary unit `mode = b`; for the joint-stereo unit `mode = 5` if the band's decision changed
-(`sent[b] ≠ cur[b]`, section 6.1), else `0` if `sent[b] ≠ 3`, else `−1`. Also `peak_old` = the band's `peak` from
+(`sent[b] ≠ cur[b]`, section 6.1), else `0` if `sent[b] ≠ 3`, else `−1`. The test compares the
+absolute `sent[b]` with the signed `cur[b]`, so a quiet decision `cur[b] = −3` always gives `mode = 5`
+and `−1` occurs only for `sent[b] = cur[b] = 3`. Also `peak_old` = the band's `peak` from
 the previous call. Constants: FLOOR = 1.8718718e10, MIN = 4.6796792e10, R = 1.85 (all float32).
 
 ```
@@ -405,7 +408,8 @@ The spectrum of a unit is stored band-major: coefficient `256b + k`.
 
 ## 9. Bit split between the units [split_bits] (0x4378c0, 66 kbps only)
 
-With A = spectrum of unit 0, B = spectrum of unit 1, `nsub0` = 26, `nsub1` = 13, `bpc` = 96,
+With A = spectrum of unit 0, B = spectrum of unit 1, `nsub0` = 27, `nsub1` = 12 (the `nsub_max`
+values of section 2), `bpc` = 96,
 `base0` = 1133, `d0` = sent[0] (the band-0 selector transmitted this frame) and `g1` = number of
 gain points of unit 1 in band 0:
 
@@ -463,23 +467,34 @@ sf[i] = mx_i;  C[i] = cnt7;  cum += sum_i
 
 Taken when `left > 32·C[nsub−1]` (few loud groups). Two tone groups are set up: group 0 with step 5,
 group 1 with step 7, both 4 values per tone, tonal coding mode 1 (CLC). `cost = 22` (plus 3 per band
-if `nbands` had to grow to `floor(SB_START[nsub]/256)`, *unreachable*). Repeated passes over
-k = 0 .. SB_START[nsub]−1 until a pass adds no tone:
+if `nbands` had to grow to `floor(SB_START[nsub]/256)`, *unreachable*). The tone count `n` starts
+at 0. Repeated passes over k = 0 .. SB_START[nsub]−1 until a pass leaves `n` unchanged:
 
 ```
 if |x[k]| ≥ 2.0:
     pos = min(k, 1020);  s = sf_index4(x[pos..pos+3]);  grp = 1 if s > 30 else 0;  blk = k >> 6
+    new = true
     if group grp's block blk already has 7 tones:
         if the other group's block blk also has 7: replace: among the 7 tones of grp in blk take the
             one with the smallest sf below s (first in list order); if none: skip k;
             otherwise add it back into x (10.6), remove it from the list and re-use its record
-            (with its old position) instead of a new tone
+            (with its old position) instead of a new tone;  new = false
         else grp = other group
+    if new: n += 1
     first tone of grp in the 256-coefficient band blk>>2: cost += 12 (band flag set)
     append the tone to grp's block list, quantise it at its position (10.5) with grp's step
-    cost += 28 + 8·grp;  if cost > left − 200 or 64 tones: stop everything
+    cost += 28 + 8·grp;  if cost > left − 200 or n ≥ 64: stop everything
     k += 3
 ```
+
+**Replacement accounting.** A replacement does not increment `n`, so it does not count towards the
+64-tone limit, and a pass whose only changes are replacements ends the passes. Nothing is refunded:
+the reused record's earlier `28 + 8·grp` stays in `cost` and the line above charges it again (its
+band flag is already set, so no 12). `cost` is therefore a reservation, not the size of the final
+tone fields; `left` is reduced by the reservation and the allocator never reclaims the difference.
+Example: `stereo.wav`, analysis call 10 (file frame 8), unit 1 makes two replacements in group 1
+and ends with 14 + 14 tones in two flagged group/band pairs. The tone fields take
+22 + 24 + 14·28 + 14·36 = 942 bits, and `cost` = 942 + 2·36 = 1014.
 
 Afterwards for every subband i < nsub: recompute gsf of its groups on the residual, `sf[i] = max`,
 `sel[i] = 1 if sf[i] ≠ 0 else 0`, `P[i] = 341·sf[i]`. `left −= cost`. Continue with 10.7.

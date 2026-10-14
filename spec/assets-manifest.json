@@ -13,8 +13,8 @@
       "sha256": "069bde34b041d9cd54198f84926c1fe879b5dab0271b295fa66fe0f002178467"
     },
     "vectors/cases.json": {
-      "bytes": 22260,
-      "sha256": "252f4967df7ccb0daa545442b8746fb628fa03e368ba3fc1103c238c0d5f4675"
+      "bytes": 26994,
+      "sha256": "38f2c1aee6b736893e9390e16aabfc238f66008b1bfbd6977483fea9c5191247"
     },
     "vectors/clipping.lp2.at3": {
       "bytes": 3920,
@@ -63,6 +63,26 @@
     "vectors/quiet.wav": {
       "bytes": 32812,
       "sha256": "9c5559b399ce40ff21f25b186132c49b1d2804e47f181a9a064cff5fa85b27df"
+    },
+    "vectors/quiet_clicks.lp2.at3": {
+      "bytes": 3920,
+      "sha256": "2c2fac1b98a7d5e7410c0d14cf02b84452248b81bb71821bbf12e1949ffb4a87"
+    },
+    "vectors/quiet_clicks.lp2.frames": {
+      "bytes": 3840,
+      "sha256": "108ca3e7205a0b32f59ed85a31599242ed04e4c977e0c92550438a96f89c56db"
+    },
+    "vectors/quiet_clicks.lp4.at3": {
+      "bytes": 2000,
+      "sha256": "c17abf726c81fde7b30adc7a33346656dcc211827e64f13f09d37ecdb8eba0a4"
+    },
+    "vectors/quiet_clicks.lp4.frames": {
+      "bytes": 1920,
+      "sha256": "1f148f564814ba7e90a8b0b42c3eb05b8877122d7ac0b848be8083d6e28fd156"
+    },
+    "vectors/quiet_clicks.wav": {
+      "bytes": 32812,
+      "sha256": "2c57fe5d9338a3616ef7a003dd144fc0a20437a47ede9843f6474ed28f2b52fb"
     },
     "vectors/silence.lp2.at3": {
       "bytes": 3920,
@@ -207,6 +227,26 @@
     "vectors/tone.wav": {
       "bytes": 32812,
       "sha256": "ad773a87a49f781b657a7dbd0b24fa2adf93765255bbc71a2425390cbc2785b5"
+    },
+    "vectors/tone_noise.lp2.at3": {
+      "bytes": 3920,
+      "sha256": "e6f99e02ebe06dc11fa7b959742e35a251c5992d13487415bfcdfacbb2fd03e3"
+    },
+    "vectors/tone_noise.lp2.frames": {
+      "bytes": 3840,
+      "sha256": "7debf6f9e831e54b13422b7bed4572a7c9e82ef49a0c2415a23f88facecd29ae"
+    },
+    "vectors/tone_noise.lp4.at3": {
+      "bytes": 2000,
+      "sha256": "f2d15e8d0618c1fbde3bd653801351a3c54980f90f1a9180efeccb4a01954e7f"
+    },
+    "vectors/tone_noise.lp4.frames": {
+      "bytes": 1920,
+      "sha256": "89f382890009cb832f8f90d6e382b209aaadf6401e9a9ae2c1742b1ddd22bbd7"
+    },
+    "vectors/tone_noise.wav": {
+      "bytes": 32812,
+      "sha256": "13920a22952ecb8e026b0b55f8202e8b36298d6de8610aa2a3da654723302825"
     },
     "vectors/transients.lp2.at3": {
       "bytes": 3920,

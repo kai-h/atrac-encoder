@@ -102,6 +102,12 @@ def pcm_signals():
     yield 'stereo', pan, 'Left/right dominance, imbalance, correlation, and opposite polarity.'
     yield 'clipping', np.stack([np.where(i % 32 < 16, 32767, -32768),
                                noise[:, 1]], axis=1), 'Full-scale square wave and broadband pressure.'
+    yield 'tone_noise', np.stack([tone // 4 + (noise[:, c] >> 6) for c in (0, 1)], axis=1), \
+        'Tone in noise: single-tone frames that fix subbands without multitone bits.'
+    clicks = noise >> 14
+    clicks[::383, 0] += 128
+    clicks[::389, 1] -= 128
+    yield 'quiet_clicks', clicks, 'Near-silence with sparse clicks: quiet joint-stereo gain modes.'
     for remainder in (0, 885, 886, 1023):
         length = 7 * 1024 - 955 + remainder
         yield f'tail_{remainder}', noise[:length], f'(N + 955) mod 1024 = {remainder}.'
@@ -298,7 +304,7 @@ def main():
     if mismatches:
         sys.exit('Assets differ: ' + ', '.join(mismatches))
     print(f'{"Wrote" if args.write else "Verified"} {len(assets)} assets; '
-          '20 complete LP2/LP4 files, raw frames, exact tables, ordering and stage checkpoints.')
+          '24 complete LP2/LP4 files, raw frames, exact tables, ordering and stage checkpoints.')
 
 
 if __name__ == '__main__':

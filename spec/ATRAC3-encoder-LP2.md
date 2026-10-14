@@ -395,7 +395,9 @@ then off[0] = max(off[0], 6). Otherwise off[0] = max(off[0], 6) and off[1..3] = 
    (slope 30, or 60 on the single-tone path).
 
 After the first call: **fixed[i]** = 1 when SA[i] < quiet (and then W[i] = 0); when the multitone
-path produced no bits, also fixed[i] = 1 when W[i] = 0 or SA[i] < mean. W0 = copy of W (the upper
+path produced no bits, also fixed[i] = 1 when W[i] = 0 or SA[i] < mean. "No bits" includes every
+frame that took the single-tone path, where the multitone path is skipped; the condition depends
+only on the multitone bit count, not on single-tone bits. W0 = copy of W (the upper
 bound for later increases).
 
 ### 10.7 Normalisation and dead-zone limit
