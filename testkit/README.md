@@ -8,6 +8,8 @@ The WAV files aren't stored in git. Generate them (deterministically, the same e
 python tools/make_testkit.py          # writes testkit/*.wav and testkit/manifest.json
 ```
 
+A separate set for testing gapless uploads from Web MiniDisc Pro is in [gapless/](gapless/README.md).
+
 Each track begins and ends with a short chirp (a "sync" sweep). That is how the analysis finds each track in a rip and lines it up with the source to the exact sample. So **the start of a recording doesn't need to be synchronised**: silence before the music, an extra track mark or a deleted lead-in track are all fine.
 
 | # | Track | Length | What it probes |

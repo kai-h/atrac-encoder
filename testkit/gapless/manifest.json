@@ -1,0 +1,86 @@
+{
+ "sample_rate": 44100,
+ "peak_dbfs": -12.0,
+ "sets": {
+  "tone": {
+   "desc": "440 Hz sine in both channels, continuous across all five tracks",
+   "tracks": [
+    {
+     "file": "tone-1.wav",
+     "start": 0,
+     "samples": 369117,
+     "frames": 359,
+     "mark_early_ms": 0.0
+    },
+    {
+     "file": "tone-2.wav",
+     "start": 369117,
+     "samples": 313591,
+     "frames": 306,
+     "mark_early_ms": 58.8
+    },
+    {
+     "file": "tone-3.wav",
+     "start": 682708,
+     "samples": 420863,
+     "frames": 411,
+     "mark_early_ms": 64.4
+    },
+    {
+     "file": "tone-4.wav",
+     "start": 1103571,
+     "samples": 301207,
+     "frames": 294,
+     "mark_early_ms": 64.4
+    },
+    {
+     "file": "tone-5.wav",
+     "start": 1404778,
+     "samples": 353825,
+     "frames": 349,
+     "mark_early_ms": 67.8
+    }
+   ]
+  },
+  "sweep": {
+   "desc": "log sweep from 20 Hz to 20 kHz in both channels, continuous across all five tracks",
+   "tracks": [
+    {
+     "file": "sweep-1.wav",
+     "start": 0,
+     "samples": 341333,
+     "frames": 332,
+     "mark_early_ms": 0.0
+    },
+    {
+     "file": "sweep-2.wav",
+     "start": 341333,
+     "samples": 390001,
+     "frames": 381,
+     "mark_early_ms": 55.7
+    },
+    {
+     "file": "sweep-3.wav",
+     "start": 731334,
+     "samples": 289911,
+     "frames": 283,
+     "mark_early_ms": 52.5
+    },
+    {
+     "file": "sweep-4.wav",
+     "start": 1021245,
+     "samples": 407777,
+     "frames": 398,
+     "mark_early_ms": 55.2
+    },
+    {
+     "file": "sweep-5.wav",
+     "start": 1429022,
+     "samples": 332307,
+     "frames": 328,
+     "mark_early_ms": 60.3
+    }
+   ]
+  }
+ }
+}

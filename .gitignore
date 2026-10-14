@@ -13,8 +13,10 @@
 __pycache__/
 *.pyc
 
-# Generated test-kit audio and device rips (regenerate with tools/make_testkit.py)
+# Generated test-kit audio and device rips (regenerate with tools/make_testkit.py and
+# tools/make_gapless_kit.py)
 /testkit/*.wav
+/testkit/gapless/*.wav
 /testkit/rips/
 
 # macOS
