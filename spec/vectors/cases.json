@@ -1,0 +1,476 @@
+{
+  "cases": [
+    {
+      "description": "Silence and minimal unit headers.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 955,
+      "modes": [
+        {
+          "at3": "silence.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 10,
+          "frame_sha256": [
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc"
+          ],
+          "mode": "lp2",
+          "raw_frames": "silence.lp2.frames"
+        },
+        {
+          "at3": "silence.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 10,
+          "frame_sha256": [
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969"
+          ],
+          "mode": "lp4",
+          "raw_frames": "silence.lp4.frames"
+        }
+      ],
+      "name": "silence",
+      "pcm": "silence.wav",
+      "samples_per_channel": 8192
+    },
+    {
+      "description": "Correlated periodic tone and tonal extraction.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 955,
+      "modes": [
+        {
+          "at3": "tone.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 10,
+          "frame_sha256": [
+            "11e5069c3b38b5c7f951686ab9b58714c29f035c49055cc8a392be86dbf3a304",
+            "528e65ce239a7cebd1c37c43cb109935e412ab7164135fac25587837636bafad",
+            "528e65ce239a7cebd1c37c43cb109935e412ab7164135fac25587837636bafad",
+            "528e65ce239a7cebd1c37c43cb109935e412ab7164135fac25587837636bafad",
+            "528e65ce239a7cebd1c37c43cb109935e412ab7164135fac25587837636bafad",
+            "528e65ce239a7cebd1c37c43cb109935e412ab7164135fac25587837636bafad",
+            "528e65ce239a7cebd1c37c43cb109935e412ab7164135fac25587837636bafad",
+            "2d9474591169552edce6bf25179574061858ad696faea33ea5535f364d8d545f",
+            "bd63ae8dbf1c9011587c2700c3ece0a416b39e2d69fd316965c36ec4d79b43cb",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc"
+          ],
+          "mode": "lp2",
+          "raw_frames": "tone.lp2.frames"
+        },
+        {
+          "at3": "tone.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 10,
+          "frame_sha256": [
+            "f20121cb61a76ffcb2651b5dad091b6d162dd0c0942da85d47e3d915106fb014",
+            "2a1e324e459986b6eacf27e757ef860e00824da01c93dc769d7084b8aa024d23",
+            "dac3cc8316887d9a848ba9be1a150d994c9b3e1bb86758669e89dba2746dc5b4",
+            "dac3cc8316887d9a848ba9be1a150d994c9b3e1bb86758669e89dba2746dc5b4",
+            "dac3cc8316887d9a848ba9be1a150d994c9b3e1bb86758669e89dba2746dc5b4",
+            "dac3cc8316887d9a848ba9be1a150d994c9b3e1bb86758669e89dba2746dc5b4",
+            "dac3cc8316887d9a848ba9be1a150d994c9b3e1bb86758669e89dba2746dc5b4",
+            "c16e4b0f6c4c1a644f3d743cff3d6066175ca1844743c2348422ade63301ca0c",
+            "23fb969e8a6bc0799ff61c41483094c082756115588318cc7f438e27dd957bfc",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969"
+          ],
+          "mode": "lp4",
+          "raw_frames": "tone.lp4.frames"
+        }
+      ],
+      "name": "tone",
+      "pcm": "tone.wav",
+      "samples_per_channel": 8192
+    },
+    {
+      "description": "Near-silence and weak tones.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 955,
+      "modes": [
+        {
+          "at3": "quiet.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 10,
+          "frame_sha256": [
+            "c47e18b183888b4d2249cc041e8a4ccd8cb617361a98e7a22f4ab27586decec1",
+            "e6018685ce3fa292c6fd98f09d3218a9b4f6c2aa2d8714ddb12408a5d88484bd",
+            "fe4234535b2ca9e9e673c63f4e3f8472c42e37db1b204efc3b59870fbdfa5f2d",
+            "0285932b03c1f95968cbcf4cfea3d49d7446c4fca427c0e615c3bf01d52e0c78",
+            "e6018685ce3fa292c6fd98f09d3218a9b4f6c2aa2d8714ddb12408a5d88484bd",
+            "fe4234535b2ca9e9e673c63f4e3f8472c42e37db1b204efc3b59870fbdfa5f2d",
+            "0285932b03c1f95968cbcf4cfea3d49d7446c4fca427c0e615c3bf01d52e0c78",
+            "e6018685ce3fa292c6fd98f09d3218a9b4f6c2aa2d8714ddb12408a5d88484bd",
+            "cb74ffe1543b5f044fbf5bb3e8d4fcc7567342ae9fb7d180d436974e6a486cd9",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc"
+          ],
+          "mode": "lp2",
+          "raw_frames": "quiet.lp2.frames"
+        },
+        {
+          "at3": "quiet.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 10,
+          "frame_sha256": [
+            "2cf7020238f25cb1a272f302731b743258cb5457e8cd48eea7bc8c533fad7843",
+            "6c1f65bed4b1c3ffed5ea2a88bcce240b8a1e7064ec66f3efc2a35eba51e1553",
+            "6c1f65bed4b1c3ffed5ea2a88bcce240b8a1e7064ec66f3efc2a35eba51e1553",
+            "6c1f65bed4b1c3ffed5ea2a88bcce240b8a1e7064ec66f3efc2a35eba51e1553",
+            "6c1f65bed4b1c3ffed5ea2a88bcce240b8a1e7064ec66f3efc2a35eba51e1553",
+            "6c1f65bed4b1c3ffed5ea2a88bcce240b8a1e7064ec66f3efc2a35eba51e1553",
+            "6c1f65bed4b1c3ffed5ea2a88bcce240b8a1e7064ec66f3efc2a35eba51e1553",
+            "6c1f65bed4b1c3ffed5ea2a88bcce240b8a1e7064ec66f3efc2a35eba51e1553",
+            "d265df2fb515cfc8520f5db4d5c261c3e653bce88c4c0761705cf82ce8663d26",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969"
+          ],
+          "mode": "lp4",
+          "raw_frames": "quiet.lp4.frames"
+        }
+      ],
+      "name": "quiet",
+      "pcm": "quiet.wav",
+      "samples_per_channel": 8192
+    },
+    {
+      "description": "Noise, attacks/releases, clicks, and full-range int16 PCM.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 955,
+      "modes": [
+        {
+          "at3": "transients.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 10,
+          "frame_sha256": [
+            "03b5d8f2379dad93c8ce51bbfe46a579685a239863f98e44a3d1281956e63b39",
+            "635169cd7c5485ea4fd3476f91e42d2bf62a19c2b7129a6c8fc1692fceaca3d2",
+            "5c3baaa4d9d78f29c94bbe59cfeece6ca73a881a754c4bd183468d554807aec3",
+            "fb7d19c79c40b2c273d25090fb962363aefd288e8dd61e79fdab8c6018f1f576",
+            "dbb103491de1787f621cc9a5ede714927cbce7c95fcf35df798df3aa649dd3c1",
+            "6535207d80c4b8fc1e494a7b13a5b9596b5f05ba8194da0e7094ac08351681b5",
+            "b5118e49e2b19bef44a06275d0b030814fe927265a0fa8bbc41caaa331e34deb",
+            "91e27de84de43e49197026007f2e0985f627474c973a2f3ef8f21f81dc2b15d4",
+            "ca433d36ed96be7fb20f15c289927ae45bafaae36622dd31834700bf0c131be4",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc"
+          ],
+          "mode": "lp2",
+          "raw_frames": "transients.lp2.frames"
+        },
+        {
+          "at3": "transients.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 10,
+          "frame_sha256": [
+            "1df461b917950be07c60b539964d397245c8a534a41ffd814e5d3c4e00be8309",
+            "6ddcceb1a9377f5b4c3ca868c8d5b3a62dc730dd4dba901b01df7bf7e191d2b0",
+            "aedfbfa61f0ab49222fefd58865c7c78a5ace63662e13142417c0eeed86eedea",
+            "3e31aed51b6e9bc40328d3d77b83d6c7381bfbfbb8f89ade42dec531664c6541",
+            "050401c60e5c2a6f4a1e770b00c556c01fc189661ce90606f125b8b08339c7f6",
+            "d1e3c5f12e2fd10456403af2930f74d9b06864b4e75cdb74f391c595aa83aba9",
+            "ea50b5eba7debaf807fc7659f449a18ccc2858e95da9235b65dc58198bd9e89b",
+            "c7eaaa5c4dee5f7772d87c3b43145c078dc99545b45b5af2e8526f9a358a5f59",
+            "35d4c8eb361b7e6bce37c466997ff41f3f7c229461a10e074515d71cbdd82569",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969"
+          ],
+          "mode": "lp4",
+          "raw_frames": "transients.lp4.frames"
+        }
+      ],
+      "name": "transients",
+      "pcm": "transients.wav",
+      "samples_per_channel": 8192
+    },
+    {
+      "description": "Left/right dominance, imbalance, correlation, and opposite polarity.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 955,
+      "modes": [
+        {
+          "at3": "stereo.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 10,
+          "frame_sha256": [
+            "34e54690716e83ef73d90889dbf3e4830a8030b4a65deb30acb9d0b55cd61090",
+            "49762062bebf456a0092bcad4c4e60ba9eb2ebbab1658fc06181cefc8e4b9d29",
+            "ed1bd354d9f2ce190c9e3c6dd2fa1d30a1f639110924b183d6ce406a48d9fd39",
+            "0f6007a1923d2d1c4d45ffab2e33f514d89696b3d3381e9da4cd2d9a39c59f6d",
+            "af6bf9b93fade6265dc2fe9417864c334113fcfc4fba8241038cc578b1e0bb75",
+            "7cf22a8b4984c4111abf0fc6c06d33a6d127c48e96cd65e568047eb067f34f0a",
+            "c4dd7e4b81650eb1ee9d9b652fcfb84b235cec0bb592777acbc10f09973356be",
+            "e90b5419ad775e9182ef8e7876acd5203c95544df6c3eb3c727b13c5624e1f2f",
+            "edb4d03cc63b2bf43f318a77967491a4f6aeae71a486d248b961efdc95c8446a",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc"
+          ],
+          "mode": "lp2",
+          "raw_frames": "stereo.lp2.frames"
+        },
+        {
+          "at3": "stereo.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 10,
+          "frame_sha256": [
+            "266f98ae655ab21ae1c9d46ca862e0a02807d466b40e1144a6d6649c20e15a91",
+            "048f7e147dadc7e6b39d13e97232920f17807b337c1823a4cc83a7905415cca8",
+            "1027a3c8ac5c4878f897ec7f2658d57adaa447104b34077f201103a3ac1c1c6d",
+            "c06bf39f81abbf01fad9ed19e0b3ba5a2d6336543caa31145ff14f135a9f1410",
+            "a5979feb4708b03ae4b59fd699bd52923759c8ed84968fd2e47b186e9e219297",
+            "2f933b0e8cef3cf2609ff63e00393416c7db47820bf7ae53c24ffd1a288387c7",
+            "ecd3d1880b27a207ab1f37212ddb6eac49c0e130de99ab68f75f6c4a4404ac52",
+            "aadb5769cb61931f426a17c543a16da293b4a70a5b4c8c44242ffbb6410209c1",
+            "a120e4867a4975ea2fe4d05413e5c7f587ca1c08f57cddf1a841f0f18a300959",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969"
+          ],
+          "mode": "lp4",
+          "raw_frames": "stereo.lp4.frames"
+        }
+      ],
+      "name": "stereo",
+      "pcm": "stereo.wav",
+      "samples_per_channel": 8192
+    },
+    {
+      "description": "Full-scale square wave and broadband pressure.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 955,
+      "modes": [
+        {
+          "at3": "clipping.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 10,
+          "frame_sha256": [
+            "b391b42e727ce7bffcd6fa0867131d6034b0d52b7093f9568bd50b48e1b676e7",
+            "6b9ee4024addc8842ecf219d736bb9f308b0b33d7c75a2e104996c1fb87484b2",
+            "6ece0dd2c04ce3fd4b868048aa1196bca1b4fdcaca1a4da2b2418c2bbdc49cf6",
+            "e2143151f1247150bf089c25f12825b73c49058056dc7aa4709d57b395575b28",
+            "9a63293b36c9974fc54c97e470e1cd6a1e7ad9109543ad95916c467d050d1c6d",
+            "4d5b98f0bf02b90c52241429dbb2f52fa9ede1fc91eb087cbdd025ffa4ab11b4",
+            "e3195d99b6691b72af0a2524abc980ef0a82d04eb2223b53fb31bc10ffb854fe",
+            "a8e7addba372b7c59f68e1e69c7f4becc7ae0ef7b19c3cb49d9cc4806c043afd",
+            "09b046e6691ce58fad94321bf64578af1807c60a9ffd521cea763e281a4fa254",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc"
+          ],
+          "mode": "lp2",
+          "raw_frames": "clipping.lp2.frames"
+        },
+        {
+          "at3": "clipping.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 10,
+          "frame_sha256": [
+            "cde5f232b60d2b5050085d5bed0d4da6c4eb3ceffb748a3d8b9c1f3edc98b69b",
+            "a33b982666f04287e87f211b86ef258d55632155dc39b635271642882bdfa44c",
+            "b3082d1c887b29dc9ba9eeb194f9c7aff67095f862df0a828ccf8166d1e58bda",
+            "7a3640e3958cd6d2b557fa75aa6a4ab64db43dc1cdeae49f2d9fb25d077a74ab",
+            "6d870c6f6955c3e4295d1b8f84e7c29072ef89a4dd153c9ec977c11bf7dee379",
+            "170d87991dba8386fb7cc2ded4989e8cdffe3d788a43de01ba7dcf30d32c2b5f",
+            "024596593295a02d78d140d7d0e7554d8bdffd9ed36c4c2a1985b5b03ed3d894",
+            "c7174e4bc0ca7b8e69831294de6eac1e4ab1985f11e5aeba6052f826357ef804",
+            "72a4aba6f3bf958036765ab22c0b5df1fc745a0a1a7190670b41bb4ec1a4309e",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969"
+          ],
+          "mode": "lp4",
+          "raw_frames": "clipping.lp4.frames"
+        }
+      ],
+      "name": "clipping",
+      "pcm": "clipping.wav",
+      "samples_per_channel": 8192
+    },
+    {
+      "description": "(N + 955) mod 1024 = 0.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 1024,
+      "modes": [
+        {
+          "at3": "tail_0.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 8,
+          "frame_sha256": [
+            "ef4dfeeb98204257d3e3b237833718ff9108de7e7058891234a18716018da22b",
+            "90f03843a5d0692d519536ad2660b64f3f1debbfe0486829a2ec7b931db6e7ac",
+            "5791f1b1edc2daca8a8b2788c7ef783fdbf5fd2e1ba9c854e7ed3c4a34921bef",
+            "bea743bb0a8ba78779fd42e6ee11aca0122e04ec6e76161b23d38c88d23d94a0",
+            "9db73dd8f54811b52e0771ea7f17edf25691268fb7776e316537bea5e908b7bb",
+            "48c88bef911668496b917a7b2191a8d4b57f51ffe9fe0f53f182919bb544f140",
+            "f316cde3f924c1181a797addaf57b442710de51216d3aeb5184004b6099d62f6",
+            "f9a9dd30464daabf53a2896f8e957cef836123d1d33f101a77f23fb0323b99b2"
+          ],
+          "mode": "lp2",
+          "raw_frames": "tail_0.lp2.frames"
+        },
+        {
+          "at3": "tail_0.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 8,
+          "frame_sha256": [
+            "a90e1c47c4e513a561e7a70aae4933566b4fc4c7c4ff2443965bea212bcbc84c",
+            "fcffb8440e1696b0745f9d12cedc37ccf66c95ed0cb012d52f44a77613090786",
+            "fbb4188269919010360c0c70097b499ef8cb52db92671d74ac26b0bcfe611d0d",
+            "59bb71a38235fa2b0426f550c858c0dde2ea7e85103c4101882079cf041dfc15",
+            "d936be62a0dbc486cb295c376147a7a4f6adaf2b920797d45aea131d7339bb81",
+            "89b561308ca634a6486563da57160e19c3d3714fdf0e9b656d9acd22cd2f0263",
+            "27c2f05fe60741cfa41579b0e5d32c6c9d57165b26cd807778d8e3c1048770d6",
+            "8001d6368afe360eae1eae797005981ded9cea4defc4ee5d97eb24c954d156f0"
+          ],
+          "mode": "lp4",
+          "raw_frames": "tail_0.lp4.frames"
+        }
+      ],
+      "name": "tail_0",
+      "pcm": "tail_0.wav",
+      "samples_per_channel": 6213
+    },
+    {
+      "description": "(N + 955) mod 1024 = 885.",
+      "empty_analysis_calls": 2,
+      "final_data_block_samples": 885,
+      "modes": [
+        {
+          "at3": "tail_885.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 8,
+          "frame_sha256": [
+            "ef4dfeeb98204257d3e3b237833718ff9108de7e7058891234a18716018da22b",
+            "90f03843a5d0692d519536ad2660b64f3f1debbfe0486829a2ec7b931db6e7ac",
+            "5791f1b1edc2daca8a8b2788c7ef783fdbf5fd2e1ba9c854e7ed3c4a34921bef",
+            "bea743bb0a8ba78779fd42e6ee11aca0122e04ec6e76161b23d38c88d23d94a0",
+            "9db73dd8f54811b52e0771ea7f17edf25691268fb7776e316537bea5e908b7bb",
+            "48c88bef911668496b917a7b2191a8d4b57f51ffe9fe0f53f182919bb544f140",
+            "e71d1555f0a920e22f83238d2ba9094c33b1a00459fe491190e66e3f06f11e13",
+            "2cdcb4d964d5cf22cc9694686d67967e39e9ece96ad5fcbb4404b63a9d651802"
+          ],
+          "mode": "lp2",
+          "raw_frames": "tail_885.lp2.frames"
+        },
+        {
+          "at3": "tail_885.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 8,
+          "frame_sha256": [
+            "a90e1c47c4e513a561e7a70aae4933566b4fc4c7c4ff2443965bea212bcbc84c",
+            "fcffb8440e1696b0745f9d12cedc37ccf66c95ed0cb012d52f44a77613090786",
+            "fbb4188269919010360c0c70097b499ef8cb52db92671d74ac26b0bcfe611d0d",
+            "59bb71a38235fa2b0426f550c858c0dde2ea7e85103c4101882079cf041dfc15",
+            "d936be62a0dbc486cb295c376147a7a4f6adaf2b920797d45aea131d7339bb81",
+            "89b561308ca634a6486563da57160e19c3d3714fdf0e9b656d9acd22cd2f0263",
+            "4cdeae644a58ea3513920f4957a808be8bd89721daae538a91a2c78d1a19fd58",
+            "596213cf2a6c72676ea0f4fde486daba180946b546ce182f4d119e1501efdbab"
+          ],
+          "mode": "lp4",
+          "raw_frames": "tail_885.lp4.frames"
+        }
+      ],
+      "name": "tail_885",
+      "pcm": "tail_885.wav",
+      "samples_per_channel": 7098
+    },
+    {
+      "description": "(N + 955) mod 1024 = 886.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 886,
+      "modes": [
+        {
+          "at3": "tail_886.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 9,
+          "frame_sha256": [
+            "ef4dfeeb98204257d3e3b237833718ff9108de7e7058891234a18716018da22b",
+            "90f03843a5d0692d519536ad2660b64f3f1debbfe0486829a2ec7b931db6e7ac",
+            "5791f1b1edc2daca8a8b2788c7ef783fdbf5fd2e1ba9c854e7ed3c4a34921bef",
+            "bea743bb0a8ba78779fd42e6ee11aca0122e04ec6e76161b23d38c88d23d94a0",
+            "9db73dd8f54811b52e0771ea7f17edf25691268fb7776e316537bea5e908b7bb",
+            "48c88bef911668496b917a7b2191a8d4b57f51ffe9fe0f53f182919bb544f140",
+            "e71d1555f0a920e22f83238d2ba9094c33b1a00459fe491190e66e3f06f11e13",
+            "5f4c91494f8414a82dce7f8b18cf35a124ad943389f697282e05619176b2c0da",
+            "c1e42a9d770fa26747d631e60e17b84301cb9c8811aeb539c335f9a92ad1a6dc"
+          ],
+          "mode": "lp2",
+          "raw_frames": "tail_886.lp2.frames"
+        },
+        {
+          "at3": "tail_886.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 9,
+          "frame_sha256": [
+            "a90e1c47c4e513a561e7a70aae4933566b4fc4c7c4ff2443965bea212bcbc84c",
+            "fcffb8440e1696b0745f9d12cedc37ccf66c95ed0cb012d52f44a77613090786",
+            "fbb4188269919010360c0c70097b499ef8cb52db92671d74ac26b0bcfe611d0d",
+            "59bb71a38235fa2b0426f550c858c0dde2ea7e85103c4101882079cf041dfc15",
+            "d936be62a0dbc486cb295c376147a7a4f6adaf2b920797d45aea131d7339bb81",
+            "89b561308ca634a6486563da57160e19c3d3714fdf0e9b656d9acd22cd2f0263",
+            "4cdeae644a58ea3513920f4957a808be8bd89721daae538a91a2c78d1a19fd58",
+            "5edfa96965ad9ff521e744d9fd7933afa83b540b14130a7a5d92f3f99c066713",
+            "b4a34a219e236b6655ec4cb7ed177566c53c2bc25f57bd8c9b313d0c8b937969"
+          ],
+          "mode": "lp4",
+          "raw_frames": "tail_886.lp4.frames"
+        }
+      ],
+      "name": "tail_886",
+      "pcm": "tail_886.wav",
+      "samples_per_channel": 7099
+    },
+    {
+      "description": "(N + 955) mod 1024 = 1023.",
+      "empty_analysis_calls": 3,
+      "final_data_block_samples": 1023,
+      "modes": [
+        {
+          "at3": "tail_1023.lp2.at3",
+          "frame_bytes": 384,
+          "frame_count": 9,
+          "frame_sha256": [
+            "ef4dfeeb98204257d3e3b237833718ff9108de7e7058891234a18716018da22b",
+            "90f03843a5d0692d519536ad2660b64f3f1debbfe0486829a2ec7b931db6e7ac",
+            "5791f1b1edc2daca8a8b2788c7ef783fdbf5fd2e1ba9c854e7ed3c4a34921bef",
+            "bea743bb0a8ba78779fd42e6ee11aca0122e04ec6e76161b23d38c88d23d94a0",
+            "9db73dd8f54811b52e0771ea7f17edf25691268fb7776e316537bea5e908b7bb",
+            "48c88bef911668496b917a7b2191a8d4b57f51ffe9fe0f53f182919bb544f140",
+            "5cfd7a8ed2c0ab22e4071f83b7b7407830c13346b7b85a6024aee6386daaaf44",
+            "742f1ffc790747c4ba5560b65b4c5a478cafff7e53d122a69d8a5a3e2cc06cf3",
+            "49234515e8999c401bc1da437dffe4a6e0af28b09dc6e84832955c329da4a2a6"
+          ],
+          "mode": "lp2",
+          "raw_frames": "tail_1023.lp2.frames"
+        },
+        {
+          "at3": "tail_1023.lp4.at3",
+          "frame_bytes": 192,
+          "frame_count": 9,
+          "frame_sha256": [
+            "a90e1c47c4e513a561e7a70aae4933566b4fc4c7c4ff2443965bea212bcbc84c",
+            "fcffb8440e1696b0745f9d12cedc37ccf66c95ed0cb012d52f44a77613090786",
+            "fbb4188269919010360c0c70097b499ef8cb52db92671d74ac26b0bcfe611d0d",
+            "59bb71a38235fa2b0426f550c858c0dde2ea7e85103c4101882079cf041dfc15",
+            "d936be62a0dbc486cb295c376147a7a4f6adaf2b920797d45aea131d7339bb81",
+            "89b561308ca634a6486563da57160e19c3d3714fdf0e9b656d9acd22cd2f0263",
+            "f388d54b4d4a3b413565400b14db587a3e59a3d23504b605515905f4e30e58ba",
+            "98bf95ea121062862f567a9034772d963c44443e093e0bcb6e3aa39509243412",
+            "8536f2734d5f743c250c2196da83dba2b32b1884ab695f21e068cf034e593646"
+          ],
+          "mode": "lp4",
+          "raw_frames": "tail_1023.lp4.frames"
+        }
+      ],
+      "name": "tail_1023",
+      "pcm": "tail_1023.wav",
+      "samples_per_channel": 7236
+    }
+  ],
+  "channels": 2,
+  "format_version": 1,
+  "pcm_bits": 16,
+  "sample_rate": 44100
+}

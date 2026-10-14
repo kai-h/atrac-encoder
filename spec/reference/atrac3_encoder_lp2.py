@@ -1,6 +1,6 @@
 """ATRAC3 encoder, Sony "algorithm 1" (MiniDisc LP2, 132 kbps stereo; also 66 kbps mono).
 
-Executable companion to spec/drafts/encoder_lp2.md.  Produces output byte-identical to
+Executable companion to spec/ATRAC3-encoder-LP2.md.  Produces output byte-identical to
 psp_at3tool.exe 3.0.0.0 (`at3tool -e -br 132 in.wav out.at3`, or `-br 66` with mono input).
 
 Usage:  python atrac3_encoder_lp2.py in.wav out.at3
@@ -34,7 +34,9 @@ class LP2Encoder:
 
     def encode_call(self, block, nsamples):
         """block: int16 array (nsamples, channels), nsamples <= 1024 (zero-padded internally).
-        Returns (frame bytes, end flag).  The frame of call k describes the input of call k-1
+        Returns (computed frame bytes, end flag), including call 0's bytes that the original
+        library suppresses. File framing discards calls 0 and 1. The frame of call k describes
+        the input of call k-1
         (one block of internal delay)."""
         self.counts = [nsamples] + self.counts[:2]      # [this call, k-1, k-2]
         end = self.counts[2] < END_THRESHOLD
@@ -100,8 +102,8 @@ def encode_file(wav_in, at3_out):
     pcm = read_wav(wav_in)
     if pcm.shape[1] not in (1, 2):
         raise ValueError('mono or stereo input only')
-    if len(pcm) <= 6144:
-        print('note: at3tool refuses inputs of 6144 samples or fewer', file=sys.stderr)
+    if len(pcm) < 6144:
+        print('note: at3tool refuses inputs shorter than 6144 samples', file=sys.stderr)
     frames = encode_pcm(pcm)
     data = b''.join(frames)
     with open(at3_out, 'wb') as f:

@@ -64,7 +64,7 @@ The tool reads and writes little-endian RIFF/WAVE files. The chunk order on outp
 | 0 | 2 | `wFormatTag` = 0x0270 (WAVE_FORMAT_SONY_SCX / ATRAC3) |
 | 2 | 2 | channels (1 or 2) |
 | 4 | 4 | 44100 |
-| 8 | 4 | `nAvgBytesPerSec` = round(44100 × block_align / 1024 + 0.5), i.e. 16538 / 13092 / 8269 for 384 / 304 / 192 bytes |
+| 8 | 4 | `nAvgBytesPerSec` = floor(44100 × block_align / 1024 + 0.5), i.e. 16538 / 13092 / 8269 / 6546 for 384 / 304 / 192 / 152 bytes |
 | 12 | 2 | `nBlockAlign` = frame bytes (384, 304, 192, 152) |
 | 14 | 2 | `wBitsPerSample` = 0 |
 | 16 | 2 | `cbSize` = 14 |
@@ -342,6 +342,36 @@ Gain points (§4.3) describe level changes within a 256-sample band block. Befor
 - **at3tool:** the input stream is 955 zero samples followed by the source (generally `Z = (K − 69) mod 1024`, §9.2). The tool **discards the first frame** the library returns whenever `K − 69 < 1024`, which is always the case without loop points (K = 1024). For N source samples let `T = N + 955` and `r = T mod 1024`. The file then holds `⌈T/1024⌉` frames if `0 < r < 886`, and one frame more otherwise.
 - **End-to-end timing:** the file timing is that of §3.5 (decoded sample `i` ↔ source sample `i − (K + 69)`) for both encoders. Sony's own decoder, and the reference decoder here, reproduce the source sample-aligned. **[verified]**
 
+For non-looping input, the following is an explicit file-framing algorithm. Indices below are
+zero-based **analysis-call indices**, including the library's initial suppressed output:
+
+```
+stream = 955 zero samples per channel ++ source
+D = ceil(length(stream) / 1024)
+feed the D data blocks, zero-padding only the last block
+r = length(stream) mod 1024
+if r == 0:
+    make 3 empty analysis calls                 # first empty call marks end of input
+elif r < 886:
+    make 2 empty analysis calls
+else:
+    make 3 empty analysis calls
+write frames from analysis calls 2 onward, including the last empty analysis call
+```
+
+At r = 0, algorithm 0 needs one further flush invocation to report completion, with no
+analysis and no frame; algorithm 1 reports its end flag on the third empty analysis call.
+At r > 0, algorithm 0 likewise reports completion on the invocation after its final frame.
+Thus output frame counts are D, D+1, D+1 for r = 1..885, 886..1023, 0 respectively.
+Call 0 primes analysis, call 1's returned frame is discarded by the file wrapper, and call 2
+supplies file frame 0. These rules assume ordinary tool-sized inputs, whose first call is full;
+algorithm 0's counter procedure in Chapter 8 §3.1 governs a short very first call.
+
+Do not prepend 955 zeros when testing the raw library API: they belong to the file wrapper.
+The 886 boundary applies to the final block of **source plus lead-in**, not to source length
+alone. No loop metadata is emitted by this non-looping procedure. The reference models accept
+short files beyond the original tool's input domain; this is not a claim of tool compatibility.
+
 ## 7. Encoder algorithm 1 (LP2, 132 kbps; 66 kbps mono)
 
 **Complete: see [ATRAC3-encoder-LP2.md](ATRAC3-encoder-LP2.md).** The reference model [`reference/atrac3_encoder_lp2.py`](reference/atrac3_encoder_lp2.py) produces files **byte-identical** to `at3tool -e -br 132`, and to `-br 66` with mono input. It was tested on 9,780 frames: synthetic signals, edge cases and PSP SDK music. **[verified]**
@@ -381,7 +411,8 @@ at3tool -d [-repeat N] in.at3 out.wav                          decode to 16-bit 
 
 - **`-br`:** defaults to 128 kbps, which is an ATRAC3plus rate. For ATRAC3 use `-br 132`, `105` or `66` with stereo input, or `66` or `52` with mono input. ATRAC3plus rates are 32–352 kbps.
 - **Supported combinations:** these are listed in §2. The bit rate together with the input channel count selects the table entry.
-- **Input length:** input must be at least 6144 samples (0x1800).
+- **Input length:** input must be at least 6144 samples (0x1800), inclusive. The check at
+  0x402E46 compares N with 0x1800 and accepts N ≥ 6144 (signed `jge`). **[from tool code]**
 - **Loops:** must satisfy `0 ≤ S < S + 6143 ≤ E < N`. A `smpl` chunk in the input is used if no `-loop` is given.
 - **`-repeat N`:** the decoder plays the loop section N times (default 2).
 

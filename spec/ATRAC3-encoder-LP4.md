@@ -673,6 +673,18 @@ The weight and selectors are the transmitted values (section 6). Section 3.3 giv
 
 ## 13. Tables
 
+Exact values, including the complete QMF vectors and all four MDCT rotation columns, are
+exported in [`tables/lp4.json`](tables/lp4.json). [`tables/README.md`](tables/README.md) defines
+the representation and maps names from this chapter to exported tables. These frozen bit
+patterns take precedence over abbreviated decimal values and regenerated formulas.
+
+`MDCT_FFT_TW` is a 127-entry array: stage 2's C(2,j,64) is entry 2j; for each subsequent
+stage n = 4,8,16,32,64, C(n,k,256/(2n)) is entry n/2−1+n·k. All array indices are zero-based.
+Disable fused multiply-add and reassociation in SSE-equivalent stages: round every operation
+to binary32 in the stated order, with round-to-nearest ties-to-even and without flushing
+subnormal operands/results to zero. Apply binary64 arithmetic in x87-equivalent stages and
+round to binary32 only at the specified stores.
+
 Small tables (all in `lp4_tables.py` with addresses):
 
 ```
@@ -702,6 +714,14 @@ legal value hold the zero code.
 
 Scalar constants: stereo 19.697716, 2304, 96, 4.791992e12, 1.6802721, 3.94 (double), 0.05 (double),
 5/3; gain 1.8718718e10, 4.6796792e10, 1.85, 1.6, 2.0, √2, 9.2225066e−15, 7.6671869e13; tones 1e10, 2.0.
+
+For deterministic ordering: the scale-factor survey, subband processing and peak scan use
+increasing indices; gain bands are visited 3,2,1,0. Equal maximum priorities in §10.9 select
+the lowest subband index on every iteration. Equal replacement scale factors in §10.2 select
+the first tone in its cell list; new records append. Tone splitting appends new records after
+the existing ones in original-tone order; shrinking visits tones from last to first.
+Packing visits groups, flagged bands, and 64-line cells in increasing index order and keeps
+each cell's record order. These traversal rules are part of byte-exact behaviour.
 
 ## 14. Edge cases and unreachable code
 

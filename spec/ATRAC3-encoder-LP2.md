@@ -74,9 +74,14 @@ zero-padded to 1024. The library keeps the per-channel sample counts of the last
 (initialised to 1024) and returns an **end flag** = (count of the call two calls earlier < 886).
 Samples are converted exactly: `x = f32(int16)`.
 
+The original library reports zero output bytes for call 0, although it advances all analysis
+state. The executable model's `encode_call` deliberately returns the computed bytes even on
+call 0; its file wrapper discards them. A library-compatible caller must suppress these bytes.
+The end-flag call still produces a frame; stop after writing it. Do not call again after completion.
+
 ### 2.3 Tool framing (at3tool `-e`, no loop points)
 
-For a WAV with N samples per channel (the tool requires N > 6144):
+For a WAV with N samples per channel (the tool requires N ≥ 6144):
 
 1. The encoder input stream is 955 zero samples followed by the N source samples, cut into
    1024-sample calls; the last call carries the remainder (1..1024 samples).
@@ -188,10 +193,27 @@ Accumulation: release values become suffix sums in recording order, each capped 
 recorded, lowest position, keeps its value). With R = the largest of them (0 if none), attack
 values become suffix sums in recording order capped at 11 + R.
 
-Log-gain profile over the 33 positions 0..32:
-`G[j] = Σ attack values with position ≥ j + Σ release values with position ≤ j`
-(using the accumulated values: attacks fill positions 0..pos₀ with their first value, then
-pos₀+1..pos₁ with the second, …; releases fill from 32 downwards analogously).
+Log-gain profile over the 33 positions 0..32, using the **already accumulated** values:
+
+```
+G[0..32] = 0
+j = 0
+for (pos, value) in attacks in recording order:       # increasing positions
+    while j <= pos:
+        G[j] += value
+        j += 1
+j = 32
+for (pos, value) in releases in recording order:      # decreasing positions
+    while j >= pos:
+        G[j] += value
+        j -= 1
+```
+
+Each list fills disjoint intervals; attack and release contributions are added where their
+intervals overlap. Do not sum all accumulated values whose positions lie on one side of j:
+that would count the suffix sums more than once. For example, accumulated attacks
+`[(3, 5), (7, 2)]` and no releases give G[0..3] = 5, G[4..7] = 2, G[8..32] = 0.
+Further profile and gain-point examples are in `vectors/gain-profiles.json`.
 
 Gain points: for j = 0..31 in order, wherever G[j] ≠ G[j+1], emit (level G[j] − G[32] + 4,
 location j). Then drop trailing points whose level is 4. More than 7 points is an error (never
@@ -412,6 +434,31 @@ descending; ties resolved by that algorithm) on the key `SB[i] − i div 2` (nor
 W[i] one step at a time (re-quantising) until W[i] = 0 or total ≤ budget, then move to the
 previous subband of the order.
 
+The exact `order_descending(keys)` procedure is below. Integer division is floor division;
+the returned permutation, including equal-key order, is normative. This is not a stable sort.
+
+```
+n = length(keys); K = copy(keys); order = [0, 1, ..., n-1]
+h = 1
+while h <= n: h = 3*h + 1
+repeat:
+    h = h div 3
+    if h < 1: return order
+    if h >= n: continue
+    for t = 0 .. n-h-1:
+        v = K[h+t]; j = t
+        while j >= 0 and K[j] < v:                   # strict comparison
+            K[j+h] = K[j]
+            swap(order[j+h], order[j])
+            j -= h
+        K[j+h] = v
+```
+
+In particular, the index array is updated by swaps, not by a separate stable insertion.
+Use this same procedure in §10.11(d). Equal margins in §10.10 are visited in descending
+subband index within each threshold class; equal candidate ratios in §6.2 use the first
+array index. Golden equal-key examples are in `vectors/ordering.json`.
+
 ### 10.10 Coded subband count and the remaining bits
 
 nused = index of the last subband with W > 0, plus one (at least 1). The subband selectors are
@@ -500,6 +547,10 @@ At the start everything is zero (the first call sees a zero history, zero gain d
   line 1024; internal error returns.
 
 ## 15. Tables (addresses in psp_at3tool.exe)
+
+Exact values are exported in [`tables/lp2.json`](tables/lp2.json), with representation and
+name mappings in [`tables/README.md`](tables/README.md). Use the exported IEEE bit patterns
+for byte-exact work; this avoids host-math differences when regenerating the formulas below.
 
 | table | address | definition |
 |---|---|---|

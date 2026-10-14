@@ -1,0 +1,235 @@
+{
+  "files": {
+    "tables/common.json": {
+      "bytes": 35272,
+      "sha256": "6bc52de519d81bce2b58556760b5d66320e43060a7d3931611e1bfec26598a9f"
+    },
+    "tables/lp2.json": {
+      "bytes": 64534,
+      "sha256": "11955fe29646073239d6ea23ff634440441f257b611ca860b19b481203fbce0a"
+    },
+    "tables/lp4.json": {
+      "bytes": 40137,
+      "sha256": "069bde34b041d9cd54198f84926c1fe879b5dab0271b295fa66fe0f002178467"
+    },
+    "vectors/cases.json": {
+      "bytes": 22260,
+      "sha256": "252f4967df7ccb0daa545442b8746fb628fa03e368ba3fc1103c238c0d5f4675"
+    },
+    "vectors/clipping.lp2.at3": {
+      "bytes": 3920,
+      "sha256": "165dad09cfb99ce5dd351bfad261669ca4d1a1b8243ee420e71512637c1fb94b"
+    },
+    "vectors/clipping.lp2.frames": {
+      "bytes": 3840,
+      "sha256": "01f7714826c1eefb532c5eb5762793b0004b8c3d17e2d52469bc3ca93a2da60f"
+    },
+    "vectors/clipping.lp4.at3": {
+      "bytes": 2000,
+      "sha256": "f9efd15541679b2b20b67ca32e08e54aeebaa36ab90887a6063859699f2564ff"
+    },
+    "vectors/clipping.lp4.frames": {
+      "bytes": 1920,
+      "sha256": "28b6c368899f324bf3d7aa29e700cbfc3383c029d58eb59094712c96aba53ca6"
+    },
+    "vectors/clipping.wav": {
+      "bytes": 32812,
+      "sha256": "07b7535fd1e64f70f90b28d731a1547287fb6b678234415d8f90c90c2c1f1c64"
+    },
+    "vectors/gain-profiles.json": {
+      "bytes": 2219,
+      "sha256": "7c346f9a1460794ad421114db33f16b9c19287f6e76621835a61cbca2ee5f60b"
+    },
+    "vectors/ordering.json": {
+      "bytes": 2511,
+      "sha256": "b251473685325d154029a69df860b8b31a2cbf3c290083ccd3b205bd356d6551"
+    },
+    "vectors/quiet.lp2.at3": {
+      "bytes": 3920,
+      "sha256": "cd078329e7c1e6b8dd61d1f9a55d49665a9008d969da42c27bf4b5cf3eaace9a"
+    },
+    "vectors/quiet.lp2.frames": {
+      "bytes": 3840,
+      "sha256": "a046bd6da539cf24b1f47dd636b7992f62ae8fc4a0a194988c1b3a795e307363"
+    },
+    "vectors/quiet.lp4.at3": {
+      "bytes": 2000,
+      "sha256": "dde3d29b93c6e5384512e1a4375ed1ea6ef8b89a4687c51ebe7c11691a7de5e8"
+    },
+    "vectors/quiet.lp4.frames": {
+      "bytes": 1920,
+      "sha256": "46de1a7cc7295894d12f7b3641f373bd7fc5b3bc4f3b1ca95c8eb91ec70bf145"
+    },
+    "vectors/quiet.wav": {
+      "bytes": 32812,
+      "sha256": "9c5559b399ce40ff21f25b186132c49b1d2804e47f181a9a064cff5fa85b27df"
+    },
+    "vectors/silence.lp2.at3": {
+      "bytes": 3920,
+      "sha256": "8b2b5347fc23204c9996033a632cdf5175e62d198fb2f8c7efe9863814fdc525"
+    },
+    "vectors/silence.lp2.frames": {
+      "bytes": 3840,
+      "sha256": "862e514276eb5c71b95efde8b62652a636819c14b2ced48b5595f95f5c4cc29d"
+    },
+    "vectors/silence.lp4.at3": {
+      "bytes": 2000,
+      "sha256": "340a82e13e207a78a49bbe39a8e9d31e1474d310c314be26e4ec7a4726447365"
+    },
+    "vectors/silence.lp4.frames": {
+      "bytes": 1920,
+      "sha256": "104ce610a117e336b63859931b2f4f3da1bc94e8513b18d87f88fd6727c72562"
+    },
+    "vectors/silence.wav": {
+      "bytes": 32812,
+      "sha256": "29e5f37429e608972ecdd4fa057bea7b9746bb6270fa3286d108339a9080403d"
+    },
+    "vectors/stages.json": {
+      "bytes": 509972,
+      "sha256": "5d632759c225f0c8bf67f4b41d5d338883299141a6b9d8ee6a1b13c14bdb850b"
+    },
+    "vectors/stereo.lp2.at3": {
+      "bytes": 3920,
+      "sha256": "4ad5061d670fe157e82d00b7625319279c0c13ab4fed5a6ac043294f8815c7bb"
+    },
+    "vectors/stereo.lp2.frames": {
+      "bytes": 3840,
+      "sha256": "3ca5072ef9b08633c6f79fbc6b097275ad6a5ec05f5b90594636a513c0d80ba5"
+    },
+    "vectors/stereo.lp4.at3": {
+      "bytes": 2000,
+      "sha256": "e3c8142cd01becc951cd9915cd4fcaad658ec37f968595066832ffafe5c1ba32"
+    },
+    "vectors/stereo.lp4.frames": {
+      "bytes": 1920,
+      "sha256": "235280d2a78dcf3f7ea4755ff48f2a9b524270baf0d452f64f5f3db459679a73"
+    },
+    "vectors/stereo.wav": {
+      "bytes": 32812,
+      "sha256": "f91bd16a5b77b620492fc933f854298418003d7773bf1d58cf926e2f5b106d94"
+    },
+    "vectors/tail_0.lp2.at3": {
+      "bytes": 3152,
+      "sha256": "2d7175741ed1359db4bcb5fc9112464aa93ba20fd115f61249c7356f87a153f1"
+    },
+    "vectors/tail_0.lp2.frames": {
+      "bytes": 3072,
+      "sha256": "745e90fb62735686e376ec763c029ec7282154596d1c77e50ad50d7970a97e87"
+    },
+    "vectors/tail_0.lp4.at3": {
+      "bytes": 1616,
+      "sha256": "7f4569cac8bd2b07892a70f6bb07e151b00760bdf72b65dde01e362276aa1fa5"
+    },
+    "vectors/tail_0.lp4.frames": {
+      "bytes": 1536,
+      "sha256": "fb676c6490bf3b7413adcd8546da2e1d9b3151a852a47207050a263432096394"
+    },
+    "vectors/tail_0.wav": {
+      "bytes": 24896,
+      "sha256": "c41fe2c4cff1aa26bea7943fab3d5979758f3cefee5955a4565094a680dd304f"
+    },
+    "vectors/tail_1023.lp2.at3": {
+      "bytes": 3536,
+      "sha256": "e73f39ce2b8d65d569643b23e15e13e3f227c406674888230ba6a47e0409918c"
+    },
+    "vectors/tail_1023.lp2.frames": {
+      "bytes": 3456,
+      "sha256": "3642245f35ad32ce0b55dec5e7d130c23fef82678ef3e4cfddc2743360a7c3cf"
+    },
+    "vectors/tail_1023.lp4.at3": {
+      "bytes": 1808,
+      "sha256": "26d3a74fe7f678483c051fa0ddf52fff363a3bb4c1f80fe911d2e30c2d2b22ee"
+    },
+    "vectors/tail_1023.lp4.frames": {
+      "bytes": 1728,
+      "sha256": "1b915dd089ea3600889a523929191562f1a80b32c803bcf7a69f8a96f45d482f"
+    },
+    "vectors/tail_1023.wav": {
+      "bytes": 28988,
+      "sha256": "e22e6816c00a991ae2a5fb6ad56f483135b1fe86ceed8b92630e224f49bc2ae4"
+    },
+    "vectors/tail_885.lp2.at3": {
+      "bytes": 3152,
+      "sha256": "6faec764157c350441bf4f60bf383b0e3e79f12a8455d8fe2f47589fdee82ad9"
+    },
+    "vectors/tail_885.lp2.frames": {
+      "bytes": 3072,
+      "sha256": "9a944e96d716c3baf7e308a93c9f1aaebf3b848555686eb3fdd35a454d25fc65"
+    },
+    "vectors/tail_885.lp4.at3": {
+      "bytes": 1616,
+      "sha256": "0ef0d3e759a34a06cbc4951b84ab80c3844efa2f7239ac98b59383663e6f7a60"
+    },
+    "vectors/tail_885.lp4.frames": {
+      "bytes": 1536,
+      "sha256": "fc4da256878cb6c63e56c942d1ef58c5c090d3e2aeb8e12b5f0e24d0c2d201c2"
+    },
+    "vectors/tail_885.wav": {
+      "bytes": 28436,
+      "sha256": "194023e3a978bcbbe126e3e64417ad919a79af0e8e732aad4ae4f356b40e303e"
+    },
+    "vectors/tail_886.lp2.at3": {
+      "bytes": 3536,
+      "sha256": "cf4a4f1d80ba8d28dab8c6eda499f1b3fba20d8f5746da29edd8eb78c2d0ea3f"
+    },
+    "vectors/tail_886.lp2.frames": {
+      "bytes": 3456,
+      "sha256": "b690ae4163cd126e8554e13d0740f31f9e2effb279a449081d5de0c7e5248acc"
+    },
+    "vectors/tail_886.lp4.at3": {
+      "bytes": 1808,
+      "sha256": "a9221b3942de9c90271e35145aa65ecb04b15c031f791829cdc8d57dc5221b23"
+    },
+    "vectors/tail_886.lp4.frames": {
+      "bytes": 1728,
+      "sha256": "bd6977491bb65f20a251f30bf0ea13c43d6d79f8c2d33039c81bee95ac8ba8b9"
+    },
+    "vectors/tail_886.wav": {
+      "bytes": 28440,
+      "sha256": "136baeedfb5b8e79131c35e033028d60a0ec8deaae66f4149ce3df17bd25313b"
+    },
+    "vectors/tone.lp2.at3": {
+      "bytes": 3920,
+      "sha256": "b6673f37a846a8777879390348cc2182a4ba17e9bd39f969618b6faebe6acd6a"
+    },
+    "vectors/tone.lp2.frames": {
+      "bytes": 3840,
+      "sha256": "83c8e60dd7823905e772715ebc5a7a120959a25375b2e286ade0f0072743eede"
+    },
+    "vectors/tone.lp4.at3": {
+      "bytes": 2000,
+      "sha256": "43cfeb037a1a3424faefd7a7d1495eaf870a400841547a975bc3122731d8bce9"
+    },
+    "vectors/tone.lp4.frames": {
+      "bytes": 1920,
+      "sha256": "c861d315027bca5110851b3680cb16e78a97605fecc953d1cff3714fabd41707"
+    },
+    "vectors/tone.wav": {
+      "bytes": 32812,
+      "sha256": "ad773a87a49f781b657a7dbd0b24fa2adf93765255bbc71a2425390cbc2785b5"
+    },
+    "vectors/transients.lp2.at3": {
+      "bytes": 3920,
+      "sha256": "ddcc9e44ddda568a41318d3c03dc745a9ddccc607927d950ec99c07956a22def"
+    },
+    "vectors/transients.lp2.frames": {
+      "bytes": 3840,
+      "sha256": "8b3002d073e5602300904827b261eef81a18a1e3452a97a1107a05bbe37ea03f"
+    },
+    "vectors/transients.lp4.at3": {
+      "bytes": 2000,
+      "sha256": "42920ef660ead849df28128286fc2f6f5c0c595228224e5c3794d59b552ab36f"
+    },
+    "vectors/transients.lp4.frames": {
+      "bytes": 1920,
+      "sha256": "6e8b1ce7c7361fe70c769abf273b2d5de9402cf565c1510a9d7f3c0f2d332ecd"
+    },
+    "vectors/transients.wav": {
+      "bytes": 32812,
+      "sha256": "4e3b282974040153dc083207bd87bc4abe111f43d0a8743eba425e5033161818"
+    }
+  },
+  "format_version": 1,
+  "generator": "generate_assets.py",
+  "provenance": "Synthetic PCM; expected outputs/checkpoints from spec/reference. Sony verification, when available, is recorded separately."
+}

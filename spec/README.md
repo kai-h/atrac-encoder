@@ -9,6 +9,18 @@ A specification of Sony's ATRAC3 audio codec, reconstructed from the reference i
 | [ATRAC3-encoder-LP4.md](ATRAC3-encoder-LP4.md) | Chapter 8: Sony encoder "algorithm 0" (LP4 66 kbps joint stereo, 105 kbps, 52 kbps mono), complete and byte-exact |
 | [ATRAC3-tables.md](ATRAC3-tables.md) | Appendix A: all tables (subbands, scale factors, code tables, window, QMF filter, gain and joint-stereo tables) |
 | [reference/](reference/) | Executable reference models in Python: decoder (Sony-equivalent to ±1 LSB), LP2 and LP4 encoders (byte-exact) |
+| [tables/](tables/README.md) | Exact implementation-neutral JSON tables: IEEE bit patterns, integer tables, and codebooks |
+| [vectors/](vectors/README.md) | Synthetic PCM, complete expected LP2/LP4 files, raw frames, ordering and intermediate checkpoints |
+
+For a specification-only implementation, the Markdown plus `tables/` and `vectors/` are the
+handoff package. Implementers need not read reference Python source or access Sony's binary.
+Exact exports take precedence over formulas and abbreviated decimal values for byte-exact
+reproduction. Vector documentation records model-derived provenance and oracle-check limits.
+
+Check frozen files with `python spec/verify_assets.py` (standard library only). Compare a new
+encoder's files with `python spec/verify_assets.py --outputs /path/to/output`.
+Regenerate or check against the models with `python spec/generate_assets.py --write` or
+`--check` (NumPy required). Hashes are in [assets-manifest.json](assets-manifest.json).
 
 ## Reference models
 

@@ -2,7 +2,7 @@
 
 This is the encoder used for MiniDisc LP4 (66 kbps joint stereo, 192-byte frames) and for
 105 kbps stereo (304-byte frames).  The model is written to reproduce Sony's output byte for
-byte; see spec/drafts/encoder_lp4.md for the description.
+byte; see spec/ATRAC3-encoder-LP4.md for the description.
 
 Usage:
     enc = Encoder(66)                       # or 105
