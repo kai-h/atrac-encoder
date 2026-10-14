@@ -1,12 +1,15 @@
-# ATRAC3 (MiniDisc LP2/LP4) specification
+# ATRAC3 (MiniDisc LP2/LP4)
 
-A specification of Sony's ATRAC3 audio codec, as used by MiniDisc LP2 (132 kbps) and LP4 (66 kbps), written for the digital preservation of MiniDisc audio. It was reconstructed by analysing and observing Sony's reference encoder/decoder (`at3tool` 3.0.0.0) and verifying our own implementation against it.
+A specification, encoders and decoder for Sony's ATRAC3 audio codec, as used by MiniDisc LP2 (132 kbps) and LP4 (66 kbps), written for the digital preservation of MiniDisc audio. The specification was reconstructed by analysing and observing Sony's reference encoder/decoder (`at3tool` 3.0.0.0) and verifying our own implementation against it.
 
 - **[spec/](spec/)** contains the specification: the bitstream, the decoder, both of Sony's encoders and all tables.
+  - **[spec/tables/](spec/tables/README.md)** exports exact IEEE floating-point bit patterns, integer tables and codebooks as implementation-neutral JSON.
+  - **[spec/vectors/](spec/vectors/README.md)** contains synthetic PCM, expected encoded files and frames, hashes, and intermediate checkpoints.
 - **[spec/reference/](spec/reference/)** contains the Python reference models.
   - The decoder matches Sony's within ±1 LSB.
   - The LP2 and LP4 encoders produce output byte-identical to Sony's.
   - They need only NumPy.
+- **[cleanroom/](cleanroom/README.md)** contains a separate specification-driven Python encoder prototype for LP2 and LP4. It uses the Markdown, exported tables and golden vectors without importing the existing codec or reference models. See [Specification-driven prototype](#specification-driven-prototype).
 - **[tools/](tools/)** contains the verification and analysis tooling: a CPU-emulator harness for the reference tool, comparison scripts, signal generators and a hardware test-kit generator.
 
 - **[src/](src/)** is a C99 implementation of the decoder and both encoders, built as the `atrac3` command-line tool and as a WebAssembly module ([web/](web/)). Its encoder output is byte-identical to the reference models, and so to Sony's, and it runs several hundred times faster than real time. See [Source code](#source-code).
@@ -16,6 +19,22 @@ python spec/reference/atrac3_encoder_lp2.py in.wav out.at3        # LP2 (stereo)
 python spec/reference/atrac3_encoder_lp4.py in.wav out.at3 66     # LP4 joint stereo
 python spec/reference/atrac3_decoder.py in.at3 out.wav
 ```
+
+## Specification-driven prototype
+
+The [cleanroom/](cleanroom/README.md) prototype implements LP2 stereo (132 kbps), its independent-channel mono variant (66 kbps), and LP4 joint stereo (66 kbps). It reads 16-bit PCM WAV files at 44.1 kHz, requires at least 6144 samples per channel, and rejects PSP loop metadata. It needs Python and NumPy; no Sony executable is required.
+
+Run these commands from the repository root:
+
+```bash
+python -m cleanroom.encoder --mode lp2 in.wav out.at3
+python -m cleanroom.encoder --mode lp4 in.wav out.at3
+python -m unittest cleanroom.test_conformance -v
+```
+
+Both modes match all 12 published stereo golden cases byte for byte: 24 complete files and 228 frames. All 17 conformance tests pass, including signal-processing checkpoints, framing boundaries, tonal replacement accounting, and the `tone_noise` and `quiet_clicks` regressions. The golden set does not establish exhaustive input coverage or production performance.
+
+The prototype is standalone; the C library, native CLI and WebAssembly module below use the existing C implementation. The [prototype README](cleanroom/README.md) records its provenance, including reference-source exposure during the earlier specification audit before specification-only implementation began.
 
 ## Command-line tool
 
@@ -100,7 +119,7 @@ Sony uses two separate ATRAC3 encoders. The LP2 encoder also handles 66 kbps mon
 
 ### Command-line tool
 
-[cli/atrac3.c](cli/atrac3.c) parses `at3tool`'s arguments, reads the input file into memory, converts it with `at3_encode_wav` or `at3_decode_at3` and writes the result. It prints a note when the input has 6144 samples or fewer (which `at3tool` refuses) or carries loop points, which are ignored.
+[cli/atrac3.c](cli/atrac3.c) parses `at3tool`'s arguments, reads the input file into memory, converts it with `at3_encode_wav` or `at3_decode_at3` and writes the result. It prints a note for short inputs or loop points; loop points are ignored. Sony's tool requires at least 6144 samples per channel.
 
 ### WebAssembly module
 
@@ -138,7 +157,7 @@ ATRAC1 (MiniDisc SP) and ATRAC3plus are not covered.
 
 ## Licence
 
-The specification, reference models, C implementation and tools are released under the [MIT licence](LICENSE).
+The specification, reference models, specification-driven prototype, C implementation and tools are released under the [MIT licence](LICENSE).
 
 ## Trademarks
 
